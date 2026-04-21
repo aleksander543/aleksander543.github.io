@@ -3,10 +3,95 @@
 // Replaces the earlier static-only dev server. No external dependencies.
 
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const url = require('url');
+
+// ---------- THTG config ----------
+const THTG_TOKEN  = process.env.THTG_TOKEN  || '6fd4f9905453c463ee35d4e61adf6bce7bfe03a5';
+const THTG_DOMAIN = process.env.THTG_DOMAIN || 'crmmegapolis.thtg.pl';
+
+const INVESTMENT_MAP = {
+  14: 'osiedle-ozon',
+  21: 'osiedle-ozon',
+  12: 'linden-bunscha',
+  19: 'osiedle-fi',
+  16: 'cloud-lindego',
+};
+const INVESTMENT_IDS = Object.keys(INVESTMENT_MAP).map(Number);
+
+const thtgCache = new Map();
+const CACHE_TTL = 5 * 60 * 1000;
+
+function thtgFetch(apiPath) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      { hostname: THTG_DOMAIN, path: apiPath, method: 'GET',
+        headers: { Authorization: `Thtg ${THTG_TOKEN}`, Accept: 'application/json' } },
+      (res) => {
+        let raw = '';
+        res.on('data', c => raw += c);
+        res.on('end', () => {
+          try { resolve(JSON.parse(raw)); }
+          catch (e) { reject(new Error('THTG parse error: ' + e.message)); }
+        });
+      }
+    );
+    req.on('error', reject);
+    req.setTimeout(15000, () => { req.destroy(); reject(new Error('THTG timeout')); });
+    req.end();
+  });
+}
+
+async function thtgCached(key, fn) {
+  const hit = thtgCache.get(key);
+  if (hit && Date.now() < hit.expiresAt) return hit.data;
+  const data = await fn();
+  thtgCache.set(key, { data, expiresAt: Date.now() + CACHE_TTL });
+  return data;
+}
+
+function mapThtgState(state) {
+  if (state === 'available') return 'available';
+  if (state === 'reservation') return 'reserved';
+  return 'sold';
+}
+
+function mapThtgProduct(item) {
+  const slug = INVESTMENT_MAP[item.investment] || String(item.investment);
+  const hasPromo = item.hasPromotionPrice && item.pricePromotion && item.pricePromotion.brutto > 0;
+  const features = (item.specifications || [])
+    .map(s => s.option && s.option.name).filter(Boolean);
+  return {
+    id: String(item.id),
+    investment: slug,
+    investmentId: item.investment,
+    building: item.building || '',
+    floor: item.floor,
+    rooms: item.roomsNumber,
+    area: item.area,
+    price: hasPromo ? item.pricePromotion.brutto : (item.priceOffer ? item.priceOffer.brutto : 0),
+    priceOld: hasPromo ? (item.priceOffer ? item.priceOffer.brutto : null) : null,
+    direction: null,
+    features,
+    status: mapThtgState(item.state),
+    pdfId: item.pdf && item.pdf.file ? item.pdf.file.id : null,
+    number: item.number,
+    projectNumber: item.projectNumber,
+  };
+}
+
+async function fetchAllThtgApartments() {
+  return thtgCached('apartments_all', async () => {
+    const pages = await Promise.all(INVESTMENT_IDS.map(id => {
+      const filter = encodeURIComponent(JSON.stringify([{ type: 'eq', field: 'investment', value: id }]));
+      return thtgFetch(`/api/v1/private/product?filter=${filter}&limit=500`);
+    }));
+    return pages.flatMap(r => (r.data || []).map(mapThtgProduct));
+  });
+}
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
@@ -310,30 +395,39 @@ async function handleAPI(req, res, parsed) {
     return sendJSON(res, 405, { error: 'method not allowed' });
   }
 
-  // --- Mock THTG: apartment listings ---
+  // --- THTG: apartment listings ---
   if (p === '/api/thtg/apartments' && m === 'GET') {
+    let list;
+    try { list = await fetchAllThtgApartments(); }
+    catch (e) { console.error('THTG fetch error:', e.message); return sendJSON(res, 502, { error: 'THTG unavailable' }); }
     const q = parsed.query;
-    let list = getContent('apartments', []) || [];
     if (q.investment) list = list.filter(a => a.investment === q.investment);
-    if (q.rooms) list = list.filter(a => String(a.rooms) === String(q.rooms));
-    if (q.minArea) list = list.filter(a => a.area >= Number(q.minArea));
-    if (q.maxArea) list = list.filter(a => a.area <= Number(q.maxArea));
-    if (q.minPrice) list = list.filter(a => a.price >= Number(q.minPrice));
-    if (q.maxPrice) list = list.filter(a => a.price <= Number(q.maxPrice));
-    if (q.floor) list = list.filter(a => String(a.floor) === String(q.floor));
-    if (q.direction) list = list.filter(a => a.direction === q.direction);
-    if (q.feature) list = list.filter(a => (a.features || []).includes(q.feature));
-    if (q.promo === '1') list = list.filter(a => a.priceOld && a.priceOld > a.price);
-    if (q.status) list = list.filter(a => a.status === q.status);
+    if (q.rooms)      list = list.filter(a => String(a.rooms) === String(q.rooms));
+    if (q.minArea)    list = list.filter(a => a.area >= Number(q.minArea));
+    if (q.maxArea)    list = list.filter(a => a.area <= Number(q.maxArea));
+    if (q.minPrice)   list = list.filter(a => a.price >= Number(q.minPrice));
+    if (q.maxPrice)   list = list.filter(a => a.price <= Number(q.maxPrice));
+    if (q.floor)      list = list.filter(a => String(a.floor) === String(q.floor));
+    if (q.feature)    list = list.filter(a => (a.features || []).includes(q.feature));
+    if (q.promo === '1') list = list.filter(a => a.priceOld !== null);
+    if (q.status)     list = list.filter(a => a.status === q.status);
     return sendJSON(res, 200, { items: list, total: list.length });
   }
   // Single apartment detail
-  const apMatch = /^\/api\/thtg\/apartments\/([a-z0-9_-]+)$/.exec(p);
+  const apMatch = /^\/api\/thtg\/apartments\/([^\/]+)$/.exec(p);
   if (apMatch && m === 'GET') {
-    const list = getContent('apartments', []) || [];
+    let list;
+    try { list = await fetchAllThtgApartments(); }
+    catch (e) { return sendJSON(res, 502, { error: 'THTG unavailable' }); }
     const a = list.find(x => x.id === apMatch[1]);
     if (!a) return sendJSON(res, 404, { error: 'not found' });
     return sendJSON(res, 200, a);
+  }
+  // THTG cache invalidation (webhook)
+  if (p === '/api/thtg/webhook' && m === 'POST') {
+    thtgCache.delete('apartments_all');
+    console.log('THTG webhook: cache cleared');
+    return sendJSON(res, 200, { ok: true });
   }
 
   // --- AI search: semantic-ish search across all content + generated answer ---
@@ -360,7 +454,8 @@ async function handleAPI(req, res, parsed) {
     const realizacje = getContent('realizacje', []) || [];
     const faq = getContent('faq', []) || [];
     const jobs = getContent('jobs', []) || [];
-    const apartments = getContent('apartments', []) || [];
+    let apartments = [];
+    try { apartments = await fetchAllThtgApartments(); } catch (e) { apartments = getContent('apartments', []) || []; }
     const osiedla = getContent('osiedla', []) || [];
     const testimonials = getContent('testimonials', []) || [];
 
