@@ -3,8 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O nas — Megapolis</title>
-  <meta name="description" content="Megapolis — innowacyjny deweloper z ponad 35-letnim doświadczeniem. Część grupy Holding 1. Budujemy osiedla w Krakowie i Wrocławiu.">
+  <title>O Megapolis — Deweloper z Krakowa od 1989 roku</title>
+  <meta name="description" content="Megapolis — 37 lat doświadczenia w branży deweloperskiej. 10 osiedli w Krakowie i Wrocławiu, część grupy Holding 1. Poznaj naszą historię i zespół.">
+  <link rel="canonical" href="https://megapolis.pl/o-nas/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#003C71">
+  <link rel="icon" type="image/svg+xml" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="apple-touch-icon" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://megapolis.pl/o-nas/">
+  <meta property="og:title" content="O Megapolis — Deweloper z Krakowa od 1989 roku">
+  <meta property="og:description" content="Megapolis — 37 lat doświadczenia w branży deweloperskiej. 10 osiedli w Krakowie i Wrocławiu, część grupy Holding 1. Poznaj naszą historię i zespół.">
+  <meta property="og:image" content="https://megapolis.pl/media/fi/fi-2.webp">
+  <meta property="og:site_name" content="Megapolis">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="O Megapolis — Deweloper z Krakowa od 1989 roku">
+  <meta name="twitter:description" content="Megapolis — 37 lat doświadczenia w branży deweloperskiej. 10 osiedli w Krakowie i Wrocławiu, część grupy Holding 1. Poznaj naszą historię i zespół.">
+  <meta name="twitter:image" content="https://megapolis.pl/media/fi/fi-2.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://megapolis.pl/" },
+      { "@type": "ListItem", "position": 2, "name": "O nas", "item": "https://megapolis.pl/o-nas/" }
+    ]
+  }
+  </script>
   <link rel="preload" href="/fonts/Ubuntu-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/Ubuntu-Medium.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/Ubuntu-Bold.ttf" as="font" type="font/ttf" crossorigin>
@@ -340,6 +367,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>12 300 00 77</span>
         </a>
+        <a class="header__fav" href="/ulubione/" aria-label="Ulubione mieszkania" id="hdrFavLink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="header__fav-badge" id="hdrFavBadge" hidden>0</span>
+        </a>
         <button class="header__burger" id="burgerBtn" aria-label="Otwórz menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -359,9 +390,10 @@
             <li><a href="/o-nas/holding">Grupa Holding 1</a></li>
           </ul>
         </li>
+        <li><a href="/wyszukiwarka">Mieszkania</a></li>
+        <li><a href="/lokale-uslugowe">Lokale usługowe</a></li>
         <li><a href="/nasze-standardy">Nasze standardy</a></li>
         <li><a href="/realizacje">Nasze realizacje</a></li>
-        <li><a href="/lokale-uslugowe">Lokale usługowe</a></li>
         <li><a href="/program-wykonczenia">Program wykończenia mieszkań</a></li>
         <li><a href="/finansowanie">Finansowanie</a></li>
         <li><a href="/kariera">Kariera i społecznie odpowiedzialni</a></li>
@@ -516,6 +548,8 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script src="/js/favorites.js"></script>
+  <script src="/js/header-fav-badge.js"></script>
   <script>
     (function () {
       const els = document.querySelectorAll('[data-rev]');

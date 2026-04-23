@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pl" data-site="megapolis">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wyszukiwarka 3D mieszkań — wizualizacja osiedli | Megapolis</title>
+  <meta name="description" content="Interaktywna wyszukiwarka 3D mieszkań Megapolis. Obejrzyj osiedle z lotu ptaka, wybierz dostępne mieszkanie, sprawdź rzut i cenę online.">
+  <link rel="canonical" href="https://megapolis.pl/wyszukiwarka-3d/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#003C71">
+  <link rel="icon" type="image/svg+xml" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="apple-touch-icon" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://megapolis.pl/wyszukiwarka-3d/">
+  <meta property="og:title" content="Wyszukiwarka 3D mieszkań — wizualizacja osiedli | Megapolis">
+  <meta property="og:description" content="Interaktywna wyszukiwarka 3D mieszkań Megapolis. Obejrzyj osiedle z lotu ptaka, wybierz dostępne mieszkanie, sprawdź rzut i cenę online.">
+  <meta property="og:image" content="https://megapolis.pl/media/ozon/ozon-ii-6.webp">
+  <meta property="og:site_name" content="Megapolis">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wyszukiwarka 3D mieszkań — wizualizacja osiedli | Megapolis">
+  <meta name="twitter:description" content="Interaktywna wyszukiwarka 3D mieszkań Megapolis. Obejrzyj osiedle z lotu ptaka, wybierz dostępne mieszkanie, sprawdź rzut i cenę online.">
+  <meta name="twitter:image" content="https://megapolis.pl/media/ozon/ozon-ii-6.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://megapolis.pl/" },
+      { "@type": "ListItem", "position": 2, "name": "Wyszukiwarka 3D", "item": "https://megapolis.pl/wyszukiwarka-3d/" }
+    ]
+  }
+  </script>
+  <link rel="preload" href="/fonts/Ubuntu-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Ubuntu-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Ubuntu-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .ws3-page { background: #f4f2ec; color: var(--graphite); }
+
+    /* =================== HERO =================== */
+    .ws3-hero {
+      position: relative;
+      padding: 180px 0 40px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f2ec 100%);
+      overflow: hidden;
+    }
+    .ws3-hero::before {
+      content: ''; position: absolute; top: -30px; right: -80px;
+      width: 360px; height: 360px;
+      background: url('/media/decor/arcs.svg') no-repeat top right;
+      background-size: contain; opacity: 0.22; pointer-events: none;
+    }
+    .ws3-hero::after {
+      content: ''; position: absolute; bottom: -40px; left: -40px;
+      width: 300px; height: 220px;
+      background: url('/media/decor/curve.svg') no-repeat bottom left;
+      background-size: contain; opacity: 0.55; pointer-events: none;
+    }
+    .ws3-hero__inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px; text-align: center;
+    }
+    .ws3-crumbs {
+      font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+      color: var(--graphite); opacity: 0.55;
+      margin-bottom: 22px;
+    }
+    .ws3-crumbs a { color: var(--brand-night); text-decoration: none; }
+    .ws3-crumbs .sep { margin: 0 10px; opacity: 0.5; }
+    .ws3-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 900;
+      color: var(--brand-night); opacity: 0.85;
+      margin-bottom: 22px;
+    }
+    .ws3-eyebrow::before,
+    .ws3-eyebrow::after { content: ''; width: 32px; height: 2px; background: #c9a55c; }
+    .ws3-hero__title {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -1.2px; color: var(--brand-night);
+      margin: 0 auto 18px;
+      max-width: 900px;
+    }
+    .ws3-hero__title em {
+      font-style: italic; font-weight: 400; color: #c9a55c;
+    }
+    .ws3-hero__lead {
+      font-size: 15px;
+      line-height: 1.65; color: var(--graphite); opacity: 0.78;
+      max-width: 680px; margin: 0 auto 0;
+    }
+    .ws3-hero__lead strong { color: var(--brand-night); font-weight: 700; }
+
+    /* Switcher between 3D and text search */
+    .ws3-toggle {
+      display: inline-flex; gap: 4px;
+      margin: 20px auto 0;
+      padding: 5px;
+      background: rgba(0, 60, 113, 0.05);
+      border: 1px solid rgba(0, 60, 113, 0.08);
+      border-radius: 9999px;
+    }
+    .ws3-toggle a {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--brand-night); opacity: 0.72;
+      text-decoration: none;
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+    }
+    .ws3-toggle a:hover { opacity: 1; }
+    .ws3-toggle a.is-active {
+      background: var(--brand-night); color: #fff;
+      opacity: 1;
+      box-shadow: 0 6px 18px rgba(0, 60, 113, 0.26);
+    }
+    .ws3-toggle a svg { flex-shrink: 0; }
+
+    /* =================== IFRAME EMBED =================== */
+    .ws3-embed-wrap {
+      max-width: 1400px; margin: 40px auto 0;
+      padding: 0 24px 40px;
+    }
+    .ws3-embed-head {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .ws3-embed-head__left {
+      display: inline-flex; align-items: center; gap: 14px;
+    }
+    .ws3-embed-head__inv {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 900;
+      color: var(--brand-night); opacity: 0.85;
+    }
+    .ws3-embed-head__inv::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: #2d7a2d;
+      box-shadow: 0 0 10px rgba(45, 122, 45, 0.5);
+      animation: ws3Pulse 2s ease-in-out infinite;
+    }
+    @keyframes ws3Pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .ws3-embed-head__link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1.5px solid rgba(0, 60, 113, 0.22);
+      border-radius: 9999px;
+      font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--brand-night);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .ws3-embed-head__link:hover {
+      background: var(--brand-night); color: #fff;
+      border-color: var(--brand-night);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0, 60, 113, 0.22);
+    }
+    .ws3-embed-head__link svg { transition: transform 0.25s ease; }
+    .ws3-embed-head__link:hover svg { transform: translate(2px, -2px); }
+
+    .ws3-embed {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 60, 113, 0.1);
+      isolation: isolate;
+    }
+    /* Złota nitka u góry */
+    .ws3-embed::before {
+      content: ''; position: absolute;
+      top: 0; left: 40px; right: 40px; height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(201, 165, 92, 0.5) 30%,
+        rgba(201, 165, 92, 0.9) 50%,
+        rgba(201, 165, 92, 0.5) 70%,
+        transparent 100%);
+      z-index: 3;
+    }
+    .ws3-embed__bar {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 14px 22px;
+      background: linear-gradient(180deg, rgba(0, 60, 113, 0.025), rgba(183, 201, 211, 0.04));
+      border-bottom: 1px solid rgba(0, 60, 113, 0.08);
+    }
+    .ws3-embed__bar-left {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 800;
+      color: var(--graphite); opacity: 0.65;
+    }
+    .ws3-embed__bar-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #2d7a2d;
+      box-shadow: 0 0 10px rgba(45, 122, 45, 0.5);
+      animation: ws3Pulse 2s ease-in-out infinite;
+    }
+    .ws3-embed__bar strong { color: var(--brand-night); font-weight: 900; }
+    .ws3-embed__bar-meta {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+      color: var(--graphite); opacity: 0.45;
+    }
+    .ws3-embed__frame {
+      display: block; width: 100%;
+      height: min(1400px, calc(100vh - 40px));
+      min-height: 900px;
+      border: 0;
+      background: #fff;
+    }
+
+    /* =================== UNSUPPORTED (inne inwestycje bez 3D) =================== */
+    .ws3-unavail {
+      max-width: 720px; margin: 40px auto 0;
+      padding: 60px 32px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.1);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 60, 113, 0.08);
+    }
+    .ws3-unavail__ico {
+      width: 56px; height: 56px; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(201, 165, 92, 0.12);
+      border-radius: 16px;
+      color: #c9a55c;
+    }
+    .ws3-unavail__title {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 22px; font-weight: 800;
+      color: var(--brand-night);
+      margin: 0 0 12px;
+      letter-spacing: -0.4px;
+    }
+    .ws3-unavail__text {
+      font-size: 14px; line-height: 1.6;
+      color: var(--graphite); opacity: 0.78;
+      margin: 0 0 24px;
+    }
+    .ws3-unavail__cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 26px;
+      background: var(--brand-night);
+      color: #fff;
+      border-radius: 9999px;
+      font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 22px rgba(0, 60, 113, 0.22);
+    }
+    .ws3-unavail__cta:hover {
+      background: #002c55;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 36px rgba(0, 60, 113, 0.32);
+    }
+
+    @media (max-width: 640px) {
+      .ws3-hero { padding: 140px 0 30px; }
+      .ws3-embed__frame { min-height: 700px; height: auto; }
+      .ws3-embed-head { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body class="ws3-page">
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="header__logo" href="/">
+        <img src="/media/megapolis-logo-whitetext.svg" alt="Megapolis" class="header__logo-img">
+      </a>
+      <div class="header__actions">
+        <a class="header__cta header__cta--find" href="/wyszukiwarka">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Znajdź swoje mieszkanie</span>
+        </a>
+        <a class="header__cta header__cta--special" href="/oferta-specjalna">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Oferta specjalna</span>
+        </a>
+        <a class="header__phone" href="tel:+48123000077">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>12 300 00 77</span>
+        </a>
+        <button class="header__burger" id="burgerBtn" aria-label="Otwórz menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__has-sub">
+          <a href="/o-nas" class="mobile-menu__toggle"><span>O nas</span>
+            <svg class="mobile-menu__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="mobile-menu__sub">
+            <li><a href="/o-nas/historia">Historia firmy</a></li>
+            <li><a href="/o-nas/zespol">Zespół</a></li>
+            <li><a href="/o-nas/misja">Misja i wartości</a></li>
+            <li><a href="/o-nas/holding">Grupa Holding 1</a></li>
+          </ul>
+        </li>
+        <li><a href="/wyszukiwarka">Mieszkania</a></li>
+        <li><a href="/lokale-uslugowe">Lokale usługowe</a></li>
+        <li><a href="/nasze-standardy">Nasze standardy</a></li>
+        <li><a href="/realizacje">Nasze realizacje</a></li>
+        <li><a href="/program-wykonczenia">Program wykończenia mieszkań</a></li>
+        <li><a href="/finansowanie">Finansowanie</a></li>
+        <li><a href="/kariera">Kariera i społecznie odpowiedzialni</a></li>
+        <li><a href="/aktualnosci">Aktualności</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+      <div class="mobile-menu__footer">
+        <a href="tel:+48123000077" class="mobile-menu__phone">12 300 00 77</a>
+        <a href="mailto:biuro@megapolis.pl" class="mobile-menu__email">biuro@megapolis.pl</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="ws3-hero">
+      <div class="ws3-hero__inner">
+        <nav class="ws3-crumbs">
+          <a href="/">Strona główna</a>
+          <span class="sep">/</span>
+          <a href="/wyszukiwarka">Mieszkania</a>
+          <span class="sep">/</span>
+          <span>Wyszukiwarka 3D</span>
+        </nav>
+        <p class="ws3-eyebrow" id="wsInvName">Wyszukiwarka 3D</p>
+        <h1 class="ws3-hero__title">Wyszukiwarka <em>3D</em> mieszkań</h1>
+        <p class="ws3-hero__lead">
+          Interaktywny widok osiedla z&nbsp;góry. Wybierz <strong>budynek, piętro i&nbsp;układ</strong> — zobacz od&nbsp;razu, które mieszkania są&nbsp;dostępne i&nbsp;jak są&nbsp;usytuowane względem reszty osiedla.
+        </p>
+        <div class="ws3-toggle" role="tablist">
+          <a href="/wyszukiwarka" role="tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Filtry tekstowe
+          </a>
+          <a href="#" class="is-active" role="tab" aria-selected="true" id="ws3ToggleActive">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <span id="ws3ToggleLabel">Widok 3D</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- IFRAME / UNAVAILABLE -->
+    <section class="ws3-embed-wrap" id="wsEmbedWrap">
+      <!-- Dynamicznie wstawiane przez JS -->
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="padding:32px 0;">
+        <p style="font-size:12px;color:var(--white-40);">&copy; 2026 Megapolis Sp. z&nbsp;o.o. &nbsp;·&nbsp; <a href="/polityka-prywatnosci" style="color:var(--white-60);">Polityka prywatności</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Mapowanie: inwestycja -> iframe URL do wyszukiwarki wizualnej (3D / graficzna)
+    // 'label' - jak partner ja nazywa (pojawia sie w tytule strony i breadcrumbs)
+    var INV_3D = {
+      fi: {
+        name: 'Nowe Osiedle Fi',
+        city: 'Kraków',
+        label: '3D',
+        url: 'https://osiedlefi.pl/wyszukiwarka-3d/'
+      },
+      ozon: {
+        name: 'Osiedle OZON',
+        city: 'Kraków',
+        label: 'graficzna',
+        url: 'https://osiedleozon.pl/wyszukiwarka-graficzna/'
+      },
+      link: {
+        name: 'LINK Bunscha',
+        city: 'Kraków',
+        label: 'graficzna',
+        url: 'https://linkbunscha.pl/wyszukiwarka-graficzna/'
+      },
+      clou: {
+        name: 'CLOU Lindego',
+        city: 'Kraków',
+        label: 'makieta',
+        url: 'https://cloulindego.pl/mieszkania-krakow-makieta/'
+      },
+    };
+
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var invKey = (params.get('inv') || 'fi').toLowerCase();
+      var inv = INV_3D[invKey];
+      var wrap = document.getElementById('wsEmbedWrap');
+      var nameEl = document.getElementById('wsInvName');
+
+      if (inv) {
+        // Zmien eyebrow na nazwe inwestycji
+        if (nameEl) nameEl.textContent = 'Inwestycja · ' + inv.name;
+
+        // Dynamiczny tytul (Fi: "3D", OZON: "graficzna")
+        var titleEl = document.querySelector('.ws3-hero__title');
+        if (titleEl) titleEl.innerHTML = 'Wyszukiwarka <em>' + inv.label + '</em> mieszkań';
+        document.title = 'Wyszukiwarka ' + inv.label + ' — ' + inv.name + ' — Megapolis';
+
+        // Dynamiczny label toggle'a
+        var toggleLbl = document.getElementById('ws3ToggleLabel');
+        if (toggleLbl) toggleLbl.textContent = 'Widok ' + inv.label;
+
+        wrap.innerHTML =
+          '<div class="ws3-embed-head">' +
+            '<div class="ws3-embed-head__left">' +
+              '<span class="ws3-embed-head__inv">' + inv.name + ' &middot; ' + inv.city + '</span>' +
+            '</div>' +
+            '<a class="ws3-embed-head__link" href="' + inv.url + '" target="_blank" rel="noopener">' +
+              'Otwórz w nowym oknie' +
+              '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
+            '</a>' +
+          '</div>' +
+          '<div class="ws3-embed">' +
+            '<div class="ws3-embed__bar">' +
+              '<span class="ws3-embed__bar-left">' +
+                '<span class="ws3-embed__bar-dot"></span>' +
+                'Widok ' + inv.label + ' &middot; <strong>' + inv.name + '</strong>' +
+              '</span>' +
+              '<span class="ws3-embed__bar-meta">Interaktywna wizualizacja osiedla</span>' +
+            '</div>' +
+            '<iframe class="ws3-embed__frame" src="' + inv.url + '" title="Wyszukiwarka ' + inv.label + ' - ' + inv.name + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-top-navigation-by-user-activation"></iframe>' +
+          '</div>';
+      } else {
+        // Inwestycja bez 3D - pokaz komunikat + redirect
+        wrap.innerHTML =
+          '<div class="ws3-unavail">' +
+            '<div class="ws3-unavail__ico">' +
+              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+                '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>' +
+                '<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>' +
+                '<line x1="12" y1="22.08" x2="12" y2="12"/>' +
+              '</svg>' +
+            '</div>' +
+            '<h2 class="ws3-unavail__title">Wyszukiwarka wizualna niedostępna</h2>' +
+            '<p class="ws3-unavail__text">' +
+              'Obecnie interaktywna wyszukiwarka działa dla <strong>OZON</strong>, <strong>LINK Bunscha</strong> (graficzne), <strong>CLOU Lindego</strong> (makieta) oraz <strong>Fi</strong> (3D). Dla pozostałych inwestycji skorzystaj z tekstowej wyszukiwarki z pełnym zestawem filtrów.' +
+            '</p>' +
+            '<a class="ws3-unavail__cta" href="/wyszukiwarka">' +
+              '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+              'Przejdź do filtrów tekstowych' +
+            '</a>' +
+          '</div>';
+      }
+    })();
+  </script>
+</body>
+</html>

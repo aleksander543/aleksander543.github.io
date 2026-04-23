@@ -52,24 +52,30 @@ document.addEventListener('DOMContentLoaded', () => {
       .to('.hero__search', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
       .to('.hero__buttons', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.55');
 
-    // ── Sobha-style dome reveal ──
-    // Hero stays fixed. Next section scales up from dome shape over it.
-    const introDome = document.getElementById('introDome');
+    // ── Sobha-style dome reveal ── (przeniesione na .showcase - sekcja inwestycji na gorze)
+    const showcase = document.getElementById('showcase');
     const introReveal = document.getElementById('introReveal');
 
-    if (introDome && introReveal) {
-      gsap.to(introDome, {
-        scale: 1,
-        borderTopLeftRadius: '0px',
-        borderTopRightRadius: '0px',
-        ease: 'power1.out',
-        scrollTrigger: {
-          trigger: introReveal,
-          start: 'top 50%',
-          end: 'top 0%',
-          scrub: 1,
+    if (showcase) {
+      // Scroll-scrub: showcase skaluje sie z 0.88 do 1 + top-radius znika wraz ze scrollem
+      gsap.fromTo(showcase,
+        { scale: 0.88, borderTopLeftRadius: '50vw', borderTopRightRadius: '50vw' },
+        {
+          scale: 1,
+          borderTopLeftRadius: '0px',
+          borderTopRightRadius: '0px',
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: showcase,
+            start: 'top 85%',
+            end: 'top 20%',
+            scrub: 1,
+          }
         }
-      });
+      );
+    }
+
+    if (introReveal) {
 
       // Fade out hero subtitle early — elegant disappear
       gsap.to('.hero__subtitle', {
@@ -77,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         y: -20,
         ease: 'none',
         scrollTrigger: {
-          trigger: introReveal,
+          trigger: showcase || introReveal,
           start: 'top 95%',
           end: 'top 65%',
           scrub: 1,
@@ -90,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
-          trigger: introReveal,
+          trigger: showcase || introReveal,
           start: 'top 80%',
           end: 'top 30%',
           scrub: 1,
@@ -102,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
-          trigger: introReveal,
+          trigger: showcase || introReveal,
           start: 'top 95%',
           end: 'top 70%',
           scrub: 1,
@@ -366,6 +372,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burgerBtn');
   const mobile = document.getElementById('mobileMenu');
   if (burger && mobile) {
+    // Inject close button (jesli jeszcze nie ma) - strzalka do zamkniecia drawera
+    if (!mobile.querySelector('.mobile-menu__close')) {
+      const closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'mobile-menu__close';
+      closeBtn.setAttribute('aria-label', 'Zamknij menu');
+      closeBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 18 19 12 13 6"/><line x1="19" y1="12" x2="5" y2="12"/></svg>';
+      mobile.insertBefore(closeBtn, mobile.firstChild);
+      closeBtn.addEventListener('click', () => {
+        mobile.classList.remove('active');
+        burger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        if (lenis) lenis.start();
+      });
+    }
+
     burger.addEventListener('click', () => {
       const open = mobile.classList.toggle('active');
       burger.classList.toggle('active');
@@ -380,6 +402,16 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('no-scroll');
       if (lenis) lenis.start();
     }));
+
+    // ESC zamyka drawer
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobile.classList.contains('active')) {
+        mobile.classList.remove('active');
+        burger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        if (lenis) lenis.start();
+      }
+    });
   }
 
   /* ============================================

@@ -782,7 +782,7 @@ img.lazy-loaded {
 .mobile-menu {
   position:fixed; top:0; right:0; bottom:0;
   width:28vw; min-width:400px; max-width:520px;
-  background:var(--bg); z-index:999;
+  background:var(--bg); z-index:1001;          /* NAD headerem (header ma 1000) */
   display:flex; flex-direction:column; align-items:stretch;
   opacity:0; visibility:hidden;
   transform: translateX(100%);
@@ -790,6 +790,34 @@ img.lazy-loaded {
   overflow-y:auto; padding:96px 28px 32px;
   border-left:1px solid var(--white-10);
   box-shadow:-20px 0 60px rgba(0,0,0,0.4);
+}
+
+/* Close button (strzalka) - zawsze widoczny, pozwala zamknac drawer */
+.mobile-menu__close {
+  position: absolute;
+  top: 24px; left: 24px;
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(.2,.8,.2,1);
+  z-index: 1003;
+}
+.mobile-menu__close:hover {
+  background: rgba(201, 165, 92, 0.2);
+  border-color: #c9a55c;
+  color: #c9a55c;
+  transform: translateX(-2px);
+}
+.mobile-menu__close:hover svg {
+  transform: translateX(2px);
+}
+.mobile-menu__close svg {
+  transition: transform 0.25s ease;
 }
 .mobile-menu.active { opacity:1; visibility:visible; transform: translateX(0); }
 /* Overlay za drawerem — przygasza resztę strony */
@@ -858,6 +886,7 @@ img.lazy-loaded {
   height:100vh;
   position:relative;
   z-index:1;
+  pointer-events:none; /* fix: nie blokuj klikow w hero content (search bar etc.) */
 }
 
 /* Dome reveal wrapper — the section that scales up over the hero */
@@ -1904,7 +1933,9 @@ body::after { opacity: 0.04; }
 
 /* ---- Hero ---- */
 .hero__tagline {
-  font-family: var(--font); font-size: 11px; letter-spacing: 0.42em; font-weight: 400; color: var(--accent); margin-bottom: 22px;
+  font-family: var(--font); font-size: 11px; letter-spacing: 0.42em; font-weight: 400; color: var(--accent);
+  margin-top: 60px;           /* zeszlo ponizej loga - minimalnie nizej */
+  margin-bottom: 32px;        /* wieksza przerwa zeby nie najechalo na PRZYCIAGAMY */
 }
 .hero__title {
   font-family: var(--font-serif); font-size: clamp(68px, 12vw, 160px);
@@ -4966,4 +4997,333 @@ html.a11y-light body { background:var(--bg); color:var(--white); }
   .portfolio-hub__intro::before,
   .portfolio-hub__intro::after,
   .portfolio-hub::after { display: none; }
+}
+
+/* ============================================================
+   LUXURY PAGES - jednolity ciemny pasek headera (jak na stronie glownej)
+   Na kazdej podstronie z body.xx-page header jest zawsze widoczny:
+   ciemny granat + biale elementy. Uniezalezniamy od scrollowania.
+   ============================================================ */
+body[class*="-page"] .header {
+  background: rgba(6, 8, 14, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 0 rgba(201, 165, 92, 0.06);
+}
+
+/* Telefon - biale na ciemnym */
+body[class*="-page"] .header__phone {
+  color: #ffffff;
+}
+body[class*="-page"] .header__phone:hover {
+  color: var(--brand-moon, #B7C9D3);
+}
+
+/* Burger - biale linie, delikatna ramka */
+body[class*="-page"] .header__burger {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+body[class*="-page"] .header__burger:hover {
+  border-color: var(--brand-moon, #B7C9D3);
+  background: rgba(255, 255, 255, 0.04);
+}
+body[class*="-page"] .header__burger span {
+  background: #ffffff;
+}
+
+/* Oferta specjalna (outline pill) - bialy tekst + ramka */
+body[class*="-page"] .header__cta--special {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: transparent;
+}
+body[class*="-page"] .header__cta--special:hover {
+  border-color: var(--brand-moon, #B7C9D3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ============================================================
+   HEADER FAV (serce) — ikona "ulubione" w headerze
+   Visible na wszystkich stronach (dark hero + cream)
+   ============================================================ */
+.header__fav {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  color: var(--white, #fff);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.header__fav:hover {
+  background: rgba(232, 65, 76, 0.14);
+  color: #ff6b74;
+  transform: translateY(-1px);
+}
+.header__fav svg { stroke: currentColor; transition: stroke 0.25s ease, fill 0.25s ease; }
+.header__fav.has-favs svg { stroke: #ff6b74; fill: rgba(255, 107, 116, 0.35); }
+.header__fav-badge {
+  position: absolute;
+  top: 2px; right: 0;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 9999px;
+  background: #e8414c;
+  color: #fff;
+  font-size: 10px; font-weight: 900; letter-spacing: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(232, 65, 76, 0.5);
+  border: 2px solid var(--bg, #0b0e17);
+  animation: header-fav-pop 0.4s cubic-bezier(.2,.8,.2,1.2);
+}
+@keyframes header-fav-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* ============================================================
+   DRAWER (mobile menu) otwarty - ukryj kolidujace elementy headera
+   body.no-scroll jest dodawane przez /js/main.js przy toggle burgera.
+   Zostawiamy tylko: logo + burger (zeby dalo sie zamknac drawer).
+   ============================================================ */
+body.no-scroll .header__cta--find,
+body.no-scroll .header__cta--special,
+body.no-scroll .header__phone,
+body.no-scroll .header__fav,
+body.no-scroll .header__cta-btn,
+body.no-scroll .header__nav,
+body.no-scroll .lang-switch,
+body.no-scroll .top-bar {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+/* Burger musi byc NAD drawerem, zeby X dalej dzialal jako close */
+body.no-scroll .header__burger {
+  position: relative;
+  z-index: 1002;
+}
+/* Logo zostaje widoczne ale nie powinno blokowac klikow w drawerze */
+body.no-scroll .header__logo {
+  pointer-events: none;
+}
+
+/* Luxury pages maja ciemny header, wiec serduszko = bialy outline, czerwony fill gdy faworyty */
+body[class*="-page"] .header__fav {
+  color: #ffffff;
+}
+body[class*="-page"] .header__fav:hover {
+  color: #ff6b74;
+  background: rgba(232, 65, 76, 0.14);
+}
+body[class*="-page"] .header__fav.has-favs {
+  color: #ff6b74;
+}
+body[class*="-page"] .header__fav.has-favs svg {
+  stroke: #ff6b74; fill: rgba(255, 107, 116, 0.4);
+}
+body[class*="-page"] .header__fav-badge {
+  border-color: rgba(6, 8, 14, 0.96);
+}
+
+/* ============================================================
+   FOOTER na podstronach (luxury cream theme)
+   Domyslny footer jest transparentny z white-40 tekstem - na
+   kremowym tle podstron to niewidoczne. Dajemy pasek navy z
+   brass akcentami, spojny z dark headerem u gory.
+   ============================================================ */
+body[class*="-page"] .footer {
+  background: var(--brand-night);     /* #003C71 Mega Night Sky */
+  border-top: 0;
+  padding: 0;
+  margin-top: 60px;
+}
+body[class*="-page"] .footer .container { padding: 0 24px; }
+body[class*="-page"] .footer .footer__bottom {
+  padding: 26px 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 12px;
+}
+body[class*="-page"] .footer .footer__bottom p {
+  font-size: 12px !important;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.82) !important;
+  margin: 0;
+}
+body[class*="-page"] .footer .footer__bottom p a {
+  color: #c9a55c !important;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 165, 92, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+body[class*="-page"] .footer .footer__bottom p a:hover {
+  color: #d9b46d !important;
+  border-color: #c9a55c;
+}
+
+/* ============================================================
+   INLINE FAVORITES SECTION (landing page)
+   Pokazywana tylko gdy user ma zapisane ulubione mieszkania.
+   Dynamicznie zarzadzana przez /js/fav-inline.js
+   ============================================================ */
+.fav-inline {
+  background: linear-gradient(180deg, #f4f2ec 0%, #ffffff 100%);
+  padding: 60px 0 40px;
+  position: relative;
+}
+.fav-inline::before {
+  content: ''; position: absolute;
+  top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(232, 65, 76, 0.35) 30%,
+    rgba(232, 65, 76, 0.6) 50%,
+    rgba(232, 65, 76, 0.35) 70%,
+    transparent 100%);
+}
+.fav-inline__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.fav-inline__title-block { max-width: 680px; }
+.fav-inline__eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 900;
+  color: #e8414c; opacity: 0.95;
+  margin: 0 0 10px;
+}
+.fav-inline__eyebrow svg { color: #e8414c; fill: #e8414c; }
+.fav-inline__title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.6px;
+  color: #003c71;
+  margin: 0 0 8px;
+}
+.fav-inline__title em { font-style: italic; font-weight: 400; color: #e8414c; }
+.fav-inline__sub {
+  font-size: 14px; line-height: 1.5;
+  color: #333; opacity: 0.72;
+  margin: 0;
+}
+.fav-inline__all {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px;
+  background: #fff;
+  border: 1.5px solid rgba(232, 65, 76, 0.22);
+  border-radius: 9999px;
+  font-size: 11px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase;
+  color: #e8414c;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(232, 65, 76, 0.1);
+}
+.fav-inline__all:hover {
+  background: #e8414c; color: #fff;
+  border-color: #e8414c;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(232, 65, 76, 0.3);
+}
+.fav-inline__all svg { transition: transform 0.25s ease; }
+.fav-inline__all:hover svg { transform: translateX(3px); }
+
+.fav-inline__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.fav-inline-card {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(0, 60, 113, 0.08);
+  border-radius: 18px;
+  padding: 20px 20px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+.fav-inline-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--inv-c, #003c71) 0%, #e8414c 100%);
+  transform: scaleX(0.2); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.fav-inline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(0, 60, 113, 0.14);
+  border-color: rgba(0, 60, 113, 0.16);
+}
+.fav-inline-card:hover::before { transform: scaleX(1); }
+.fav-inline-card__tags {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.fav-inline-card__inv {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800;
+  color: #333; opacity: 0.72;
+}
+.fav-inline-card__inv::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--inv-c, #003c71);
+}
+.fav-inline-card__id {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 26px; font-weight: 800; letter-spacing: -0.6px;
+  color: #003c71;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.fav-inline-card__meta {
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+  color: #333; opacity: 0.55;
+  margin-bottom: 14px;
+}
+.fav-inline-card__foot {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(0, 60, 113, 0.1);
+}
+.fav-inline-card__price {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 17px; font-weight: 800;
+  color: #003c71; letter-spacing: -0.3px;
+}
+.fav-inline-card__remove {
+  flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(232, 65, 76, 0.08);
+  border: 0;
+  color: #e8414c;
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+}
+.fav-inline-card__remove:hover {
+  background: #e8414c;
+  color: #fff;
+  transform: rotate(10deg);
+}
+.fav-inline-card__remove svg { width: 14px; height: 14px; }
+
+@media (max-width: 720px) {
+  .fav-inline__head { flex-direction: column; align-items: flex-start; }
 }

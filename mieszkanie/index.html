@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pl" data-site="megapolis">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Szczegóły mieszkania — rzut, cena, dostępność | Megapolis</title>
+  <meta name="description" content="Sprawdź szczegóły wybranego mieszkania z oferty Megapolis. Rzut 2D, metraż, cena, ekspozycja, przynależności. Umów prezentację online.">
+  <link rel="canonical" href="https://megapolis.pl/mieszkanie/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#003C71">
+  <link rel="icon" type="image/svg+xml" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="apple-touch-icon" href="/media/megapolis-logo-whitetext.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://megapolis.pl/mieszkanie/">
+  <meta property="og:title" content="Szczegóły mieszkania — rzut, cena, dostępność | Megapolis">
+  <meta property="og:description" content="Sprawdź szczegóły wybranego mieszkania z oferty Megapolis. Rzut 2D, metraż, cena, ekspozycja, przynależności. Umów prezentację online.">
+  <meta property="og:image" content="https://megapolis.pl/media/plans/plan-3p.avif">
+  <meta property="og:site_name" content="Megapolis">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Szczegóły mieszkania — rzut, cena, dostępność | Megapolis">
+  <meta name="twitter:description" content="Sprawdź szczegóły wybranego mieszkania z oferty Megapolis. Rzut 2D, metraż, cena, ekspozycja, przynależności. Umów prezentację online.">
+  <meta name="twitter:image" content="https://megapolis.pl/media/plans/plan-3p.avif">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://megapolis.pl/" },
+      { "@type": "ListItem", "position": 2, "name": "Mieszkanie", "item": "https://megapolis.pl/mieszkanie/" }
+    ]
+  }
+  </script>
+  <link rel="preload" href="/fonts/Ubuntu-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Ubuntu-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Ubuntu-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .apt-page { background: #f4f2ec; color: var(--graphite); }
+
+    /* ============ HERO ============ */
+    .apt-hero {
+      position: relative;
+      padding: 170px 0 50px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f2ec 100%);
+      overflow: hidden;
+    }
+    .apt-hero::before {
+      content: ''; position: absolute; top: -30px; right: -80px;
+      width: 380px; height: 380px;
+      background: url('/media/decor/arcs.svg') no-repeat top right;
+      background-size: contain; opacity: 0.2; pointer-events: none;
+    }
+    .apt-hero__inner {
+      position: relative; z-index: 1;
+      max-width: 1240px; margin: 0 auto; padding: 0 24px;
+    }
+    .apt-crumbs {
+      font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+      color: var(--graphite); opacity: 0.55;
+      margin-bottom: 24px;
+    }
+    .apt-crumbs a { color: var(--brand-night); text-decoration: none; }
+    .apt-crumbs .sep { margin: 0 10px; opacity: 0.5; }
+
+    .apt-hero__head {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .apt-hero__title-block { flex: 1 1 auto; min-width: 0; }
+    .apt-hero__tags {
+      display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .apt-hero__inv {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 900;
+      color: var(--brand-night); opacity: 0.85;
+    }
+    .apt-hero__inv::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--inv-c, var(--brand-night));
+      box-shadow: 0 0 0 3px rgba(0, 60, 113, 0.1);
+    }
+    .apt-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 9999px;
+      font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+    }
+    .apt-badge::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+    }
+    .apt-badge--available { background: rgba(45, 122, 45, 0.08); color: #2d7a2d; }
+    .apt-badge--available::before { background: #2d7a2d; }
+    .apt-badge--reserved { background: rgba(201, 165, 92, 0.12); color: #9c7935; }
+    .apt-badge--reserved::before { background: #c9a55c; }
+    .apt-badge--sold { background: rgba(0, 0, 0, 0.05); color: rgba(0, 0, 0, 0.45); }
+    .apt-badge--sold::before { background: rgba(0, 0, 0, 0.35); }
+
+    .apt-hero__title {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: clamp(36px, 5.2vw, 60px);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -1.5px; color: var(--brand-night);
+      margin: 0 0 14px;
+    }
+    .apt-hero__title em {
+      font-style: italic; font-weight: 400; color: #c9a55c;
+    }
+    .apt-hero__loc {
+      font-size: 15px; line-height: 1.5;
+      color: var(--graphite); opacity: 0.72;
+      margin: 0;
+    }
+    .apt-hero__loc strong { color: var(--brand-night); font-weight: 700; }
+
+    /* Heart button */
+    .apt-fav-btn {
+      flex: 0 0 auto;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 22px;
+      background: #ffffff;
+      border: 1.5px solid rgba(0, 60, 113, 0.18);
+      border-radius: 9999px;
+      font-size: 11px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--brand-night);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0, 60, 113, 0.06);
+    }
+    .apt-fav-btn:hover {
+      border-color: #e8414c;
+      box-shadow: 0 10px 28px rgba(232, 65, 76, 0.2);
+      transform: translateY(-1px);
+    }
+    .apt-fav-btn svg {
+      width: 20px; height: 20px;
+      stroke: #e8414c; fill: none;
+      transition: fill 0.25s ease;
+    }
+    .apt-fav-btn.is-fav {
+      background: linear-gradient(135deg, #e8414c 0%, #c53030 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 28px rgba(232, 65, 76, 0.35);
+    }
+    .apt-fav-btn.is-fav svg { stroke: #fff; fill: #fff; }
+    @keyframes apt-heart-pop {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    .apt-fav-btn.is-fav svg { animation: apt-heart-pop 0.5s cubic-bezier(.2,.8,.2,1.2); }
+
+    /* ============ BODY GRID ============ */
+    .apt-body {
+      max-width: 1240px; margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 400px;
+      gap: 40px;
+    }
+    .apt-main { min-width: 0; }
+    .apt-sidebar {
+      position: sticky; top: 24px;
+      align-self: start;
+    }
+
+    /* Plan card */
+    .apt-plan-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.1);
+      border-radius: 20px;
+      padding: 28px;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: 0 10px 40px rgba(0, 60, 113, 0.06);
+    }
+    .apt-plan-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 40px; right: 40px; height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(201, 165, 92, 0.5) 25%,
+        rgba(201, 165, 92, 0.9) 50%,
+        rgba(201, 165, 92, 0.5) 75%,
+        transparent 100%);
+    }
+    .apt-plan-card__head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 14px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .apt-plan-card__title {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 900;
+      color: var(--brand-night); opacity: 0.85;
+      margin: 0;
+    }
+    .apt-plan-card__title svg { color: #c9a55c; }
+    .apt-plan-card__zoom {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px;
+      background: transparent;
+      border: 1.5px solid rgba(0, 60, 113, 0.18);
+      border-radius: 9999px;
+      font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--brand-night);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .apt-plan-card__zoom:hover {
+      background: var(--brand-night); color: #fff; border-color: var(--brand-night);
+    }
+    .apt-plan-card__img {
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      background: #faf8f2;
+      border-radius: 14px;
+      min-height: 380px;
+      aspect-ratio: 4 / 5;
+    }
+    .apt-plan-card__img img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Summary + description */
+    .apt-summary {
+      margin: 36px 0 0;
+      padding: 24px 28px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.08);
+      border-radius: 16px;
+      font-size: 17px; line-height: 1.7; font-weight: 500;
+      color: var(--graphite); opacity: 0.9;
+      position: relative;
+    }
+    .apt-summary::before {
+      content: '';
+      position: absolute; top: 20px; left: -3px;
+      height: 40px; width: 4px;
+      background: linear-gradient(180deg, #c9a55c, var(--brand-night));
+      border-radius: 2px;
+    }
+    .apt-summary strong { color: var(--brand-night); font-weight: 800; }
+
+    .apt-description {
+      margin-top: 36px;
+    }
+    .apt-description__label {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 900;
+      color: var(--brand-night); opacity: 0.85;
+      margin-bottom: 16px;
+    }
+    .apt-description__label::before {
+      content: ''; width: 28px; height: 2px; background: #c9a55c;
+    }
+    .apt-description__text {
+      font-size: 16px; line-height: 1.8;
+      color: var(--graphite);
+      margin: 0;
+    }
+
+    /* Gallery */
+    .apt-gallery {
+      margin-top: 40px;
+    }
+    .apt-gallery__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: repeat(2, 180px);
+      gap: 10px;
+    }
+    .apt-gallery__grid > *:first-child {
+      grid-row: span 2;
+    }
+    .apt-gallery__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #faf8f2;
+      cursor: pointer;
+      transition: transform 0.35s ease;
+    }
+    .apt-gallery__item:hover { transform: scale(1.01); }
+    .apt-gallery__item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .apt-gallery__item:hover img { transform: scale(1.06); }
+
+    /* ============ SIDEBAR ============ */
+    .apt-specs {
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.1);
+      border-radius: 20px;
+      padding: 30px 28px;
+      box-shadow: 0 18px 60px rgba(0, 60, 113, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .apt-specs::before {
+      content: ''; position: absolute;
+      top: 0; left: 40px; right: 40px; height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(201, 165, 92, 0.5) 25%,
+        rgba(201, 165, 92, 0.9) 50%,
+        rgba(201, 165, 92, 0.5) 75%,
+        transparent 100%);
+    }
+    .apt-price-wrap {
+      padding-bottom: 20px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(0, 60, 113, 0.08);
+    }
+    .apt-price-lbl {
+      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 900;
+      color: var(--graphite); opacity: 0.6;
+      margin-bottom: 6px;
+    }
+    .apt-price {
+      display: flex; align-items: baseline; gap: 12px;
+      flex-wrap: wrap;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .apt-price__value {
+      font-size: clamp(28px, 3.8vw, 38px);
+      font-weight: 800; letter-spacing: -0.8px;
+      color: var(--brand-night); line-height: 1;
+    }
+    .apt-price__old {
+      font-size: 15px; font-weight: 600;
+      color: var(--graphite); opacity: 0.48;
+      text-decoration: line-through;
+    }
+    .apt-price__promo {
+      display: inline-block;
+      padding: 4px 10px;
+      background: linear-gradient(135deg, #c9a55c 0%, #b38f47 100%);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 11px; font-weight: 900; letter-spacing: 0.6px;
+      box-shadow: 0 4px 12px rgba(179, 143, 71, 0.28);
+    }
+    .apt-price__m2 {
+      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+      color: var(--graphite); opacity: 0.6;
+      margin-top: 10px;
+    }
+
+    .apt-specs__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 20px;
+    }
+    .apt-spec {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .apt-spec__lbl {
+      font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 800;
+      color: var(--brand-night); opacity: 0.58;
+    }
+    .apt-spec__val {
+      font-size: 15px; font-weight: 800; letter-spacing: -0.2px;
+      color: var(--brand-night);
+    }
+    .apt-spec__val--emph { color: #c9a55c; }
+
+    /* Features */
+    .apt-features {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 60, 113, 0.08);
+    }
+    .apt-features__label {
+      font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 800;
+      color: var(--brand-night); opacity: 0.58;
+      margin-bottom: 12px;
+    }
+    .apt-features__list {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .apt-feat {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 11px;
+      background: rgba(0, 60, 113, 0.05);
+      border-radius: 9999px;
+      font-size: 11px; font-weight: 700;
+      color: var(--brand-night);
+    }
+    .apt-feat svg { opacity: 0.65; }
+
+    /* Actions */
+    .apt-actions {
+      margin-top: 26px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .apt-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px;
+      border-radius: 9999px;
+      font-size: 12px; font-weight: 900; letter-spacing: 1.3px; text-transform: uppercase;
+      font-family: inherit; cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .apt-btn--primary {
+      background: var(--brand-night); color: #fff;
+      border: 1.5px solid var(--brand-night);
+      box-shadow: 0 10px 28px rgba(0, 60, 113, 0.25);
+    }
+    .apt-btn--primary:hover {
+      background: #002c55; border-color: #002c55;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 36px rgba(0, 60, 113, 0.35);
+    }
+    .apt-btn--ghost {
+      background: transparent; color: var(--brand-night);
+      border: 1.5px solid rgba(0, 60, 113, 0.2);
+    }
+    .apt-btn--ghost:hover {
+      border-color: var(--brand-night);
+      background: rgba(0, 60, 113, 0.04);
+    }
+
+    /* ========= NOT FOUND ========= */
+    .apt-404 {
+      max-width: 720px; margin: 60px auto;
+      padding: 70px 40px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 60, 113, 0.1);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .apt-404__title {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 28px; font-weight: 800;
+      color: var(--brand-night);
+      margin: 0 0 12px;
+    }
+
+    @media (max-width: 960px) {
+      .apt-body { grid-template-columns: 1fr; }
+      .apt-sidebar { position: static; }
+      .apt-hero__head { flex-direction: column; align-items: stretch; }
+      .apt-fav-btn { align-self: flex-start; }
+      .apt-gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .apt-gallery__grid > *:first-child { grid-row: span 1; grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .apt-specs__grid { grid-template-columns: 1fr; }
+      .apt-gallery__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="apt-page">
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="header__logo" href="/">
+        <img src="/media/megapolis-logo-whitetext.svg" alt="Megapolis" class="header__logo-img">
+      </a>
+      <div class="header__actions">
+        <a class="header__cta header__cta--find" href="/wyszukiwarka">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Znajdź swoje mieszkanie</span>
+        </a>
+        <a class="header__cta header__cta--special" href="/oferta-specjalna">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Oferta specjalna</span>
+        </a>
+        <a class="header__phone" href="tel:+48123000077">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>12 300 00 77</span>
+        </a>
+        <a class="header__fav" href="/ulubione/" aria-label="Ulubione mieszkania" id="hdrFavLink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="header__fav-badge" id="hdrFavBadge" hidden>0</span>
+        </a>
+        <button class="header__burger" id="burgerBtn" aria-label="Otwórz menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__has-sub">
+          <a href="/o-nas" class="mobile-menu__toggle"><span>O nas</span>
+            <svg class="mobile-menu__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="mobile-menu__sub">
+            <li><a href="/o-nas/historia">Historia firmy</a></li>
+            <li><a href="/o-nas/zespol">Zespół</a></li>
+            <li><a href="/o-nas/misja">Misja i wartości</a></li>
+            <li><a href="/o-nas/holding">Grupa Holding 1</a></li>
+          </ul>
+        </li>
+        <li><a href="/wyszukiwarka">Mieszkania</a></li>
+        <li><a href="/lokale-uslugowe">Lokale usługowe</a></li>
+        <li><a href="/nasze-standardy">Nasze standardy</a></li>
+        <li><a href="/realizacje">Nasze realizacje</a></li>
+        <li><a href="/program-wykonczenia">Program wykończenia mieszkań</a></li>
+        <li><a href="/finansowanie">Finansowanie</a></li>
+        <li><a href="/kariera">Kariera i społecznie odpowiedzialni</a></li>
+        <li><a href="/aktualnosci">Aktualności</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+      <div class="mobile-menu__footer">
+        <a href="tel:+48123000077" class="mobile-menu__phone">12 300 00 77</a>
+        <a href="mailto:biuro@megapolis.pl" class="mobile-menu__email">biuro@megapolis.pl</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content" id="aptRoot">
+    <!-- Dynamiczna zawartosc wstawiana przez JS -->
+    <div id="aptRoot"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="padding:32px 0;">
+        <p style="font-size:12px;color:var(--white-40);">&copy; 2026 Megapolis Sp. z&nbsp;o.o. &nbsp;·&nbsp; <a href="/polityka-prywatnosci" style="color:var(--white-60);">Polityka prywatności</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/favorites.js"></script>
+  <script src="/js/apartments-data.js"></script>
+  <script src="/js/header-fav-badge.js"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('aptRoot');
+      var params = new URLSearchParams(window.location.search);
+      var id = (params.get('id') || '').toUpperCase();
+      var apt = window.getMegapolisApartment ? window.getMegapolisApartment(id) : null;
+
+      if (!apt) {
+        root.innerHTML =
+          '<div class="apt-hero"><div class="apt-hero__inner">' +
+            '<nav class="apt-crumbs"><a href="/">Strona główna</a><span class="sep">/</span><a href="/wyszukiwarka">Mieszkania</a><span class="sep">/</span><span>Nie znaleziono</span></nav>' +
+          '</div></div>' +
+          '<div class="apt-404">' +
+            '<h1 class="apt-404__title">Mieszkanie nie znalezione</h1>' +
+            '<p style="opacity:0.78;margin-bottom:24px;">Niestety nie mamy oferty o ID <strong>' + (id || '—') + '</strong>. Przejdź do wyszukiwarki, aby zobaczyć dostępne mieszkania.</p>' +
+            '<a href="/wyszukiwarka" class="apt-btn apt-btn--primary" style="margin:0 auto;">Wróć do wyszukiwarki</a>' +
+          '</div>';
+        return;
+      }
+
+      var fmtPrice = window.formatMegapolisPrice || function (p) { return p + ' zł'; };
+      var isFav = window.MegapolisFavs.isFav(apt.id);
+      document.title = apt.id + ' · ' + apt.rooms + '-pok · ' + apt.invName + ' — Megapolis';
+
+      // Kolor inwestycji
+      var invColors = { ozon: '#2d7a5f', clou: '#c9a55c', fi: '#e8614a', link: '#1a5490' };
+      var invColor = invColors[apt.investment] || 'var(--brand-night)';
+
+      // Ikony funkcji
+      var featIcons = {
+        balkon: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M4 14h16"/></svg>',
+        loggia: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 12h10v8"/></svg>',
+        ogrodek: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V10m0 0c-4 0-7-3-7-6 3 0 7 1 7 6zm0 0c4 0 7-3 7-6-3 0-7 1-7 6z"/></svg>',
+        taras: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 20V8h14v12"/></svg>',
+        antresola: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 20V10h14v10M3 10l9-6 9 6"/></svg>',
+        'miejsce-postojowe': '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+        komorka: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>'
+      };
+      var featLabels = {
+        balkon: 'Balkon', loggia: 'Loggia', ogrodek: 'Ogródek', taras: 'Taras',
+        antresola: 'Antresola', 'miejsce-postojowe': 'Miejsce postojowe', komorka: 'Komórka lokatorska'
+      };
+
+      var statusCls = { available: 'apt-badge--available', reserved: 'apt-badge--reserved', sold: 'apt-badge--sold' }[apt.status] || '';
+
+      var photosHtml = (apt.photos || []).map(function (p) {
+        return '<div class="apt-gallery__item"><img src="' + p + '" alt="' + apt.invName + '" loading="lazy"></div>';
+      }).join('');
+
+      var featuresHtml = (apt.features || []).map(function (f) {
+        var ico = featIcons[f] || '';
+        var lbl = featLabels[f] || f;
+        return '<span class="apt-feat">' + ico + lbl + '</span>';
+      }).join('');
+
+      var promoHtml = apt.promo ? '<span class="apt-price__promo">' + apt.promo + '</span>' : '';
+      var oldPriceHtml = apt.priceOld ? '<span class="apt-price__old">' + fmtPrice(apt.priceOld) + '</span>' : '';
+
+      root.innerHTML =
+        '<section class="apt-hero">' +
+          '<div class="apt-hero__inner">' +
+            '<nav class="apt-crumbs"><a href="/">Strona główna</a><span class="sep">/</span><a href="/wyszukiwarka">Mieszkania</a><span class="sep">/</span><span>' + apt.id + '</span></nav>' +
+            '<div class="apt-hero__head">' +
+              '<div class="apt-hero__title-block">' +
+                '<div class="apt-hero__tags" style="--inv-c: ' + invColor + ';">' +
+                  '<span class="apt-hero__inv">' + apt.invName + ' · ' + apt.city + '</span>' +
+                  '<span class="apt-badge ' + statusCls + '">' + apt.statusLabel + '</span>' +
+                '</div>' +
+                '<h1 class="apt-hero__title"><em>' + apt.id + '</em> — ' + apt.rooms + '-pokojowe mieszkanie</h1>' +
+                '<p class="apt-hero__loc"><strong>' + apt.invName + '</strong> · ' + apt.city + (apt.district ? ', ' + apt.district : '') + ' · ' + apt.building + '</p>' +
+              '</div>' +
+              '<button type="button" class="apt-fav-btn' + (isFav ? ' is-fav' : '') + '" id="aptFavBtn" aria-pressed="' + (isFav ? 'true' : 'false') + '">' +
+                '<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+                '<span id="aptFavBtnTxt">' + (isFav ? 'W ulubionych' : 'Dodaj do ulubionych') + '</span>' +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+        '</section>' +
+        '<section class="apt-body">' +
+          '<div class="apt-main">' +
+            '<div class="apt-plan-card">' +
+              '<div class="apt-plan-card__head">' +
+                '<h2 class="apt-plan-card__title">' +
+                  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg>' +
+                  'Rzut mieszkania' +
+                '</h2>' +
+                '<a href="' + apt.plan + '" target="_blank" rel="noopener" class="apt-plan-card__zoom">' +
+                  'Pobierz PDF' +
+                  '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+                '</a>' +
+              '</div>' +
+              '<div class="apt-plan-card__img"><img src="' + apt.plan + '" alt="Rzut mieszkania ' + apt.id + '"></div>' +
+            '</div>' +
+
+            '<p class="apt-summary">' + apt.summary + '</p>' +
+
+            '<div class="apt-description">' +
+              '<p class="apt-description__label">O mieszkaniu</p>' +
+              '<p class="apt-description__text">' + apt.description + '</p>' +
+            '</div>' +
+
+            (photosHtml ? '<div class="apt-gallery"><div class="apt-gallery__grid">' + photosHtml + '</div></div>' : '') +
+          '</div>' +
+
+          '<aside class="apt-sidebar">' +
+            '<div class="apt-specs">' +
+              '<div class="apt-price-wrap">' +
+                '<div class="apt-price-lbl">Cena</div>' +
+                '<div class="apt-price">' +
+                  '<span class="apt-price__value">' + fmtPrice(apt.price) + '</span>' +
+                  promoHtml +
+                '</div>' +
+                (oldPriceHtml ? '<div style="margin-top:6px;">' + oldPriceHtml + '</div>' : '') +
+                '<div class="apt-price__m2">' + Math.round(apt.price / apt.area).toLocaleString('pl-PL') + ' zł/m²</div>' +
+              '</div>' +
+              '<div class="apt-specs__grid">' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Pokoje</span><span class="apt-spec__val">' + apt.rooms + '</span></div>' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Powierzchnia</span><span class="apt-spec__val">' + apt.area + ' m²</span></div>' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Piętro</span><span class="apt-spec__val">' + apt.floorLabel + '</span></div>' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Strona świata</span><span class="apt-spec__val">' + apt.directionLabel + '</span></div>' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Budynek</span><span class="apt-spec__val">' + apt.building + '</span></div>' +
+                '<div class="apt-spec"><span class="apt-spec__lbl">Odbiór</span><span class="apt-spec__val apt-spec__val--emph">' + apt.delivery + '</span></div>' +
+              '</div>' +
+              (featuresHtml ? '<div class="apt-features"><p class="apt-features__label">Funkcje</p><div class="apt-features__list">' + featuresHtml + '</div></div>' : '') +
+              '<div class="apt-actions">' +
+                (apt.status === 'available'
+                  ? '<a href="/kontakt?mieszkanie=' + apt.id + '" class="apt-btn apt-btn--primary">Umów prezentację</a>'
+                  : '<a href="/wyszukiwarka" class="apt-btn apt-btn--ghost">Zobacz dostępne mieszkania</a>'
+                ) +
+                '<a href="tel:+48123000077" class="apt-btn apt-btn--ghost">Zadzwoń: 12 300 00 77</a>' +
+              '</div>' +
+            '</div>' +
+          '</aside>' +
+        '</section>';
+
+      // Heart button handler
+      var favBtn = document.getElementById('aptFavBtn');
+      var favBtnTxt = document.getElementById('aptFavBtnTxt');
+      if (favBtn) {
+        favBtn.addEventListener('click', function () {
+          var wasFav = window.MegapolisFavs.isFav(apt.id);
+          var nowFav = window.MegapolisFavs.toggle(apt.id);
+          favBtn.classList.toggle('is-fav', nowFav);
+          favBtn.setAttribute('aria-pressed', nowFav ? 'true' : 'false');
+          if (favBtnTxt) favBtnTxt.textContent = nowFav ? 'W ulubionych' : 'Dodaj do ulubionych';
+          // Przy dodaniu: lot serduszka do headerowego licznika
+          if (!wasFav && nowFav && window.MegapolisFlyHeart) {
+            setTimeout(function () { window.MegapolisFlyHeart(favBtn); }, 120);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

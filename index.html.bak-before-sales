@@ -3,124 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Primary SEO -->
-  <title>Mieszkania Kraków i Wrocław — Deweloper Megapolis (od 1989)</title>
-  <meta name="description" content="Megapolis — deweloper mieszkaniowy w Krakowie i Wrocławiu. 10 inwestycji, 100+ mieszkań w sprzedaży. 37 lat doświadczenia, jakość premium. Sprawdź oferty i rzuty online.">
-  <meta name="keywords" content="mieszkania Kraków, deweloper Kraków, nowe mieszkania, Megapolis, OZON, CLOU Lindego, osiedle Fi, LINK Bunscha, mieszkania Wrocław, inwestycje mieszkaniowe">
-  <meta name="author" content="Megapolis Sp. z o.o.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#003C71">
-  <link rel="canonical" href="https://megapolis.pl/">
-  <link rel="alternate" hreflang="pl-PL" href="https://megapolis.pl/">
-  <link rel="alternate" hreflang="x-default" href="https://megapolis.pl/">
-
-  <!-- Favicon & Manifest -->
-  <link rel="icon" type="image/svg+xml" href="/media/megapolis-logo-whitetext.svg">
-  <link rel="apple-touch-icon" href="/media/megapolis-logo-whitetext.svg">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Open Graph / Facebook -->
+  <title>Megapolis — Przyciągamy</title>
+  <meta name="description" content="Megapolis - deweloper tworzący wyjątkowe przestrzenie do życia. Odkryj nasze inwestycje mieszkaniowe w Krakowie i Wrocławiu.">
+  <meta property="og:title" content="Megapolis — Przyciągamy">
+  <meta property="og:description" content="Deweloper tworzący wyjątkowe przestrzenie do życia w Krakowie. Mieszkania, które inspirują.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://megapolis.pl/">
-  <meta property="og:title" content="Mieszkania Kraków i Wrocław — Megapolis Deweloper">
-  <meta property="og:description" content="10 inwestycji, 100+ mieszkań w sprzedaży. 37 lat budujemy w Krakowie. Sprawdź OZON, CLOU Lindego, Nowe Osiedle Fi, LINK Bunscha.">
-  <meta property="og:image" content="https://megapolis.pl/media/ozon/ozon-ii-6.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Osiedle OZON — Megapolis, Kraków">
-  <meta property="og:site_name" content="Megapolis">
-  <meta property="og:locale" content="pl_PL">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://megapolis.pl/">
-  <meta name="twitter:title" content="Mieszkania Kraków i Wrocław — Megapolis Deweloper">
-  <meta name="twitter:description" content="10 inwestycji, 100+ mieszkań w sprzedaży. 37 lat budujemy w Krakowie. Premium jakość, rzuty i ceny online.">
-  <meta name="twitter:image" content="https://megapolis.pl/media/ozon/ozon-ii-6.webp">
-
-  <!-- Preconnect dla zewnętrznych zasobów -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="dns-prefetch" href="https://megapolis.pl">
-
-  <!-- Schema.org JSON-LD -->
+  <meta property="og:image" content="https://megapolis.pl/wp-content/uploads/2024/06/megapolis-logo-opt.svg">
+  <link rel="canonical" href="https://megapolis.pl/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://megapolis.pl/#organization",
     "name": "Megapolis Sp. z o.o.",
-    "alternateName": "Megapolis",
     "url": "https://megapolis.pl",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://megapolis.pl/media/megapolis-logo-whitetext.svg",
-      "width": 200,
-      "height": 60
-    },
-    "image": "https://megapolis.pl/media/ozon/ozon-ii-6.webp",
-    "description": "Deweloper mieszkaniowy działający od 1989 roku w Krakowie i Wrocławiu. 10 inwestycji, 37 lat doświadczenia, premium jakość budowy.",
-    "foundingDate": "1989",
-    "slogan": "Przyciągamy",
-    "telephone": "+48-12-300-00-77",
+    "logo": "https://megapolis.pl/wp-content/uploads/2024/06/megapolis-logo-opt.svg",
+    "telephone": "+48123000077",
     "email": "biuro@megapolis.pl",
-    "priceRange": "zł zł zł",
-    "areaServed": [
-      { "@type": "City", "name": "Kraków" },
-      { "@type": "City", "name": "Wrocław" }
-    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "ul. Rzemieślnicza 26",
       "addressLocality": "Kraków",
-      "addressRegion": "małopolskie",
       "postalCode": "30-403",
       "addressCountry": "PL"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "50.0331",
-      "longitude": "19.9321"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "10:00",
-        "closes": "14:00"
-      }
-    ],
-    "sameAs": [
-      "https://www.facebook.com/megapolis.pl",
-      "https://www.instagram.com/megapolis_pl",
-      "https://www.linkedin.com/company/megapolis-pl"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://megapolis.pl/#website",
-    "url": "https://megapolis.pl/",
-    "name": "Megapolis",
-    "description": "Deweloper mieszkaniowy - Kraków i Wrocław",
-    "publisher": { "@id": "https://megapolis.pl/#organization" },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://megapolis.pl/wyszukiwarka/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    },
-    "inLanguage": "pl-PL"
+    "openingHours": "Mo-Fr 09:00-17:00, Sa 10:00-14:00"
   }
   </script>
   <!-- Fonty lokalne Ubuntu (z /fonts/) — @font-face w css/style.css -->
@@ -129,822 +35,8 @@
   <link rel="preload" href="/fonts/Ubuntu-Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ===== SALES HUB — sprzedazowa sekcja ponad hero (landing) =====
-       Wstawiana po hero-spacer, przed intro-reveal. z-index 4 zeby byla
-       nad fixed hero w trakcie scrollu. */
-    .sales-hub {
-      position: relative; z-index: 4;
-      background: #f4f2ec;
-      padding: 0 0 56px;
-    }
-
-    /* Hot offers ticker - czerwony pasek jako pierwsza tresc po hero */
-    .sales-hot {
-      position: relative;
-      z-index: 4; /* nad fixed hero */
-      background: linear-gradient(90deg, #e8414c 0%, #ff6b35 100%);
-      color: #fff;
-      padding: 11px 0;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(232, 65, 76, 0.25);
-    }
-    .sales-hot__track {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      white-space: nowrap;
-      animation: sales-ticker 38s linear infinite;
-      font-size: 13px; font-weight: 600; letter-spacing: 0.4px;
-      padding-left: 100%;
-    }
-    .sales-hot__flame { font-size: 16px; }
-    .sales-hot__item strong { font-weight: 900; letter-spacing: 0.8px; }
-    .sales-hot__dot { opacity: 0.55; }
-    @keyframes sales-ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* Naglowek */
-    .sales-hub__head {
-      text-align: center;
-      max-width: 700px; margin: 0 auto 28px;
-      padding: 40px 24px 0;
-    }
-    .sales-hub__eyebrow {
-      display: inline-block;
-      font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 900;
-      color: #c9a55c; margin-bottom: 14px;
-    }
-    .sales-hub__title {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(32px, 4.6vw, 52px);
-      font-weight: 800; line-height: 1.05;
-      letter-spacing: -1px;
-      color: var(--brand-night, #003C71);
-      margin: 0 0 14px;
-    }
-    .sales-hub__title em {
-      font-style: italic; font-weight: 300;
-      color: #c9a55c;
-    }
-    .sales-hub__sub {
-      font-size: 16px; line-height: 1.65;
-      color: var(--graphite, #2a3340); opacity: 0.82;
-      margin: 0;
-    }
-
-    /* Grid inwestycji */
-    .sales-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-bottom: 36px;
-    }
-
-    /* Karta inwestycji */
-    .sales-card {
-      display: flex; flex-direction: column;
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 60, 113, 0.08);
-      text-decoration: none; color: inherit;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-shadow: 0 4px 18px rgba(0, 60, 113, 0.06);
-    }
-    .sales-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(201, 165, 92, 0.5);
-      box-shadow: 0 22px 55px rgba(0, 60, 113, 0.17);
-    }
-    .sales-card__media {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: #003C71;
-    }
-    .sales-card__media img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: block;
-    }
-    .sales-card:hover .sales-card__media img { transform: scale(1.06); }
-
-    .sales-card__status {
-      position: absolute; top: 12px; left: 12px;
-      padding: 5px 12px;
-      background: #fff;
-      font-size: 10px; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase;
-      border-radius: 9999px;
-      display: inline-flex; align-items: center; gap: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-    .sales-card__status::before {
-      content: ''; width: 5px; height: 5px; border-radius: 50%;
-    }
-    .sales-card__status--building { color: #b0691e; }
-    .sales-card__status--building::before { background: #b0691e; }
-    .sales-card__status--ready { color: #2e8b57; }
-    .sales-card__status--ready::before { background: #2e8b57; }
-    .sales-card__status--soon { color: #3d6d99; }
-    .sales-card__status--soon::before { background: #3d6d99; }
-
-    .sales-card__promo {
-      position: absolute; top: 12px; right: 12px;
-      padding: 5px 11px;
-      background: linear-gradient(135deg, #e8414c 0%, #c53030 100%);
-      color: #fff;
-      font-size: 10px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;
-      border-radius: 9999px;
-      box-shadow: 0 6px 14px rgba(232, 65, 76, 0.35);
-    }
-    .sales-card__promo--discount {
-      background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
-      color: #4a2b00;
-    }
-    .sales-card__promo--urgent {
-      background: linear-gradient(135deg, #e8414c 0%, #c53030 100%);
-      animation: sales-pulse 1.8s infinite;
-    }
-    .sales-card__promo--vip {
-      background: linear-gradient(135deg, #4a3b26 0%, #c9a96e 100%);
-      color: #fff;
-    }
-    @keyframes sales-pulse {
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.08); }
-    }
-
-    /* Body karty */
-    .sales-card__body {
-      padding: 18px 20px 20px;
-      display: flex; flex-direction: column;
-      flex: 1; gap: 14px;
-    }
-    .sales-card__name {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: 20px; font-weight: 800;
-      color: var(--brand-night, #003C71);
-      letter-spacing: -0.3px;
-      margin: 0 0 4px;
-    }
-    .sales-card__name em { font-style: italic; font-weight: 400; color: #c9a55c; }
-    .sales-card__loc {
-      font-size: 12px;
-      color: var(--graphite, #2a3340); opacity: 0.72;
-      margin: 0; letter-spacing: 0.3px;
-    }
-    .sales-card__specs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(0, 60, 113, 0.08);
-      border-bottom: 1px solid rgba(0, 60, 113, 0.08);
-    }
-    .sales-card__spec { display: flex; flex-direction: column; gap: 2px; }
-    .sales-card__spec-num {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: 15px; font-weight: 800;
-      color: var(--brand-night, #003C71);
-      line-height: 1;
-    }
-    .sales-card__spec-lbl {
-      font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700;
-      color: var(--graphite, #2a3340); opacity: 0.55;
-    }
-    .sales-card__cta {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px;
-      margin-top: auto;
-      padding: 11px 18px;
-      background: var(--brand-night, #003C71);
-      color: #fff;
-      border-radius: 9999px;
-      font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
-      transition: all 0.25s ease;
-    }
-    .sales-card:hover .sales-card__cta {
-      background: #c9a55c;
-      box-shadow: 0 10px 24px rgba(201, 165, 92, 0.3);
-    }
-
-    /* Karta "hot" (nowy etap Fi) - lekki czerwony akcent */
-    .sales-card--hot { border-color: rgba(232, 65, 76, 0.28); }
-    .sales-card--hot .sales-card__cta { background: #e8414c; }
-
-    /* Karta "soon" (Michalczyka zapisy VIP) - brass CTA */
-    .sales-card--soon .sales-card__cta {
-      background: #c9a55c; color: var(--brand-night, #003C71);
-    }
-
-    /* Trust strip - liczniki zaufania */
-    .sales-trust {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      padding: 26px;
-      background: var(--brand-night, #003C71);
-      border-radius: 16px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 14px 40px rgba(0, 60, 113, 0.2);
-    }
-    .sales-trust__item {
-      padding: 10px 14px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .sales-trust__item:last-child { border-right: 0; }
-    .sales-trust__num {
-      display: block;
-      font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 800;
-      color: #c9a55c;
-      line-height: 1; letter-spacing: -0.5px;
-      margin-bottom: 8px;
-    }
-    .sales-trust__num small { font-size: 0.5em; color: rgba(255,255,255,0.5); font-weight: 600; }
-    .sales-trust__lbl {
-      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
-      color: rgba(255, 255, 255, 0.75);
-    }
-
-    @media (max-width: 720px) {
-      .sales-trust { grid-template-columns: 1fr 1fr; }
-      .sales-trust__item { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-      .sales-trust__item:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.1); }
-      .sales-trust__item:nth-last-child(-n+2) { border-bottom: none; }
-    }
-
-    /* ===== HERO PELNY EKRAN =====
-       Przy wejsciu na strone tylko filmik, bez zadnej zajawki tresci.
-       Tresci pokazuja sie dopiero gdy user scrolla. */
-    .hero-spacer { height: 100vh; }
-
-    /* ===== PROMO BAR - wygieta dolna krawedz wspolgra z kopulka portfolio =====
-       Uzywamy SVG mask (wklesla krzywa ponizej). Filter: drop-shadow
-       podaza za ksztaltem maski (zamiast box-shadow ktory rysuje prostokat). */
-    .promo-bar {
-      position: relative;
-      z-index: 5;
-      background: linear-gradient(90deg, #003C71 0%, #1a5490 100%);
-      color: #fff;
-      padding: 14px 0 36px; /* wiecej miejsca na krzywizne */
-      filter: drop-shadow(0 8px 24px rgba(0, 60, 113, 0.28));
-      transform-origin: center center;
-      transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  opacity 0.3s ease;
-      /* SVG mask: prostokat + wklesla kopulka na dole (srodek wyciety wyzej) */
-      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'><path d='M0,0 L100,0 L100,38 C78,22 22,22 0,38 Z' fill='black'/></svg>");
-              mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'><path d='M0,0 L100,0 L100,38 C78,22 22,22 0,38 Z' fill='black'/></svg>");
-      -webkit-mask-size: 100% 100%;
-              mask-size: 100% 100%;
-      -webkit-mask-repeat: no-repeat;
-              mask-repeat: no-repeat;
-    }
-    /* Zwiniety stan (dodawany przez JS dopoki pasek nie jest widoczny) */
-    .promo-bar.is-folded {
-      transform: scaleX(0);
-      opacity: 0;
-    }
-    /* Zlota linia na gornej krawedzi (brass accent) */
-    .promo-bar::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, #c9a55c 30%, #c9a55c 70%, transparent);
-      z-index: 2;
-    }
-    .promo-bar__inner {
-      display: flex; align-items: center; gap: 16px;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .promo-bar__flame {
-      font-size: 18px; flex-shrink: 0;
-      filter: drop-shadow(0 2px 6px rgba(255, 107, 53, 0.4));
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.3) 0.35s;
-    }
-    .promo-bar.is-folded .promo-bar__flame {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-    .promo-bar__items {
-      display: flex; align-items: center; gap: 12px;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .promo-bar__item {
-      display: inline-flex; align-items: baseline; gap: 8px;
-      color: #fff; text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: background 0.2s ease,
-                  color 0.2s ease,
-                  opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .promo-bar.is-folded .promo-bar__item {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    /* Stagger - kazda pozycja wjezdza z opoznieniem po rozwinieciu paska */
-    .promo-bar__item:nth-of-type(1) { transition-delay: 0s, 0s, 0.45s, 0.45s; }
-    .promo-bar__item:nth-of-type(2) { transition-delay: 0s, 0s, 0.55s, 0.55s; }
-    .promo-bar__item:nth-of-type(3) { transition-delay: 0s, 0s, 0.65s, 0.65s; }
-    .promo-bar__item:nth-of-type(4) { transition-delay: 0s, 0s, 0.75s, 0.75s; }
-    .promo-bar__item:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .promo-bar__item strong {
-      font-size: 12px; font-weight: 900;
-      letter-spacing: 1.2px; text-transform: uppercase;
-      color: #c9a55c;
-    }
-    .promo-bar__item span {
-      font-size: 13px; font-weight: 500;
-      letter-spacing: 0.3px;
-      color: rgba(255, 255, 255, 0.92);
-    }
-    .promo-bar__item--accent strong { color: #ffd700; }
-    .promo-bar__divider {
-      width: 1px; height: 20px;
-      background: rgba(201, 165, 92, 0.35);
-      transition: opacity 0.4s ease 0.6s;
-    }
-    .promo-bar.is-folded .promo-bar__divider {
-      opacity: 0;
-    }
-    @media (max-width: 720px) {
-      .promo-bar { padding: 10px 0; }
-      .promo-bar__inner { gap: 8px; }
-      .promo-bar__items { gap: 8px; }
-      .promo-bar__item { padding: 3px 8px; }
-      .promo-bar__item strong { font-size: 11px; letter-spacing: 1px; }
-      .promo-bar__item span { font-size: 12px; }
-      .promo-bar__divider { height: 16px; }
-    }
-
-    /* ===== #6: MINIMALNE SPACINGI (ultra-kompaktowo) ===== */
-    body[data-site="megapolis"] section.section { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .portfolio-hub { padding-top: 0 !important; padding-bottom: 0 !important; }
-    body[data-site="megapolis"] .invmap { padding: 0 0 8px !important; }
-    body[data-site="megapolis"] .invmap__header { margin-bottom: 6px !important; }
-    body[data-site="megapolis"] .allinv { padding: 6px 0 !important; }
-    body[data-site="megapolis"] .finder-wrap { padding: 8px 14px !important; }
-    body[data-site="megapolis"] .finder { padding: 10px 0 !important; }
-    body[data-site="megapolis"] .stats { padding: 12px 0 !important; }
-    body[data-site="megapolis"] .programs { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .search-banner { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .why-us { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .contact { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .intro { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .realizacje { padding: 14px 0 !important; }
-    body[data-site="megapolis"] .rlz-detail { padding: 16px 0 !important; gap: 14px !important; }
-    body[data-site="megapolis"] .portfolio-hub__intro { padding-top: 4px !important; padding-bottom: 4px !important; }
-    body[data-site="megapolis"] .allinv__filters { margin-bottom: 8px !important; }
-    body[data-site="megapolis"] .portfolio-hub__header { margin-bottom: 4px !important; }
-    body[data-site="megapolis"] .footer { padding-top: 18px !important; }
-    body[data-site="megapolis"] .intro-reveal > * + * { margin-top: 0 !important; }
-    body[data-site="megapolis"] .portfolio-hub__title { margin-bottom: 4px !important; font-size: clamp(24px, 3.2vw, 36px) !important; }
-    body[data-site="megapolis"] .portfolio-hub__sub { margin-bottom: 6px !important; font-size: 13px !important; line-height: 1.5 !important; }
-    body[data-site="megapolis"] .portfolio-hub__eyebrow { margin-bottom: 4px !important; font-size: 11px !important; }
-    body[data-site="megapolis"] .portfolio-hub__tabs { margin-top: 4px !important; margin-bottom: 4px !important; }
-
-    /* Hero - oryginalne rozmiary (compact overrides usuniete) */
-    /* Promo-bar: kompakt + zachowaj wiekszy padding-bottom dla krzywizny */
-    .promo-bar { padding: 10px 0 32px !important; }
-    .promo-bar__inner { gap: 12px !important; }
-    .promo-bar__items { gap: 8px !important; }
-    .promo-bar__item { padding: 3px 8px !important; }
-    .promo-bar__item strong { font-size: 11px !important; }
-    .promo-bar__item span { font-size: 12px !important; }
-
-    /* ===== ULTRA-KOMPAKTOWE wewnetrzne marginesy ===== */
-    body[data-site="megapolis"] .finder { padding: 8px 0 6px !important; }
-    body[data-site="megapolis"] .finder::after { display: none !important; }
-    body[data-site="megapolis"] .finder__group--type { margin-bottom: 8px !important; }
-    body[data-site="megapolis"] .finder__eyebrow { margin: 2px 0 4px !important; font-size: 11px !important; }
-    body[data-site="megapolis"] .finder__title { margin: 0 0 6px !important; font-size: clamp(22px, 3vw, 34px) !important; }
-    body[data-site="megapolis"] .finder__caption { margin: 0 0 4px !important; font-size: 12px !important; }
-    body[data-site="megapolis"] .finder__cities { margin-bottom: 8px !important; gap: 8px !important; }
-    body[data-site="megapolis"] .finder__tabs { padding: 6px 14px !important; }
-    body[data-site="megapolis"] .finder__tab { padding: 8px 16px !important; }
-    body[data-site="megapolis"] .finder__city-pill { padding: 6px 16px !important; }
-    body[data-site="megapolis"] .finder__form { margin-top: 8px !important; }
-    body[data-site="megapolis"] .finder__row { gap: 10px !important; margin-bottom: 8px !important; }
-    body[data-site="megapolis"] .finder__row + .finder__row { margin-top: 0 !important; }
-    body[data-site="megapolis"] .finder__container { padding: 6px 30px !important; }
-
-    body[data-site="megapolis"] .allinv__grid { gap: 12px !important; }
-    body[data-site="megapolis"] .allinv__head { margin-bottom: 8px !important; }
-    body[data-site="megapolis"] .allinv__inner { padding: 4px 0 !important; }
-
-    body[data-site="megapolis"] .portfolio-hub__tabs { margin-top: 6px !important; margin-bottom: 4px !important; gap: 6px !important; }
-    body[data-site="megapolis"] .portfolio-hub__tab { padding: 8px 18px !important; }
-
-    /* Dome reveal CALKOWICIE usunieta z portfolio-hub.
-       Sekcja renderuje sie PLASKO na calej szerokosci, bez gapow do wideo. */
-    body[data-site="megapolis"] .intro-dome {
-      padding: 0 !important;
-      transform: none !important;
-      transform-origin: initial !important;
-      border-top-left-radius: 0 !important;
-      border-top-right-radius: 0 !important;
-      border-radius: 0 !important;
-      background: #f4f2ec !important;   /* pelne kremowe tlo */
-      overflow: visible !important;
-      will-change: auto !important;
-      width: 100% !important;
-    }
-    body[data-site="megapolis"] .intro-reveal {
-      padding: 0 !important;
-      transform: none !important;
-      background: #f4f2ec !important;   /* pelne kremowe tlo - zaslania wideo */
-      width: 100% !important;
-      position: relative !important;
-      z-index: 5 !important;            /* pewny na wierzchu ponad fixed hero */
-    }
-    body[data-site="megapolis"] .portfolio-hub {
-      background: #f4f2ec !important;
-      width: 100% !important;
-      border-radius: 0 !important;
-    }
-
-    body[data-site="megapolis"] .invmap__wrap { margin-top: 0 !important; gap: 12px !important; }
-    body[data-site="megapolis"] .invmap__map-wrap { min-height: 380px !important; }
-    body[data-site="megapolis"] .invmap__map { height: 380px !important; }
-
-    /* Zero margines miedzy sekcjami */
-    body[data-site="megapolis"] main > section + section,
-    body[data-site="megapolis"] main > section + div,
-    body[data-site="megapolis"] main > div + section,
-    body[data-site="megapolis"] main > div + div { margin-top: 0 !important; }
-
-    body[data-site="megapolis"] .contact__grid { gap: 20px !important; }
-    body[data-site="megapolis"] .search-banner__content h2 { margin-bottom: 6px !important; }
-    body[data-site="megapolis"] .search-banner__content p { margin-bottom: 10px !important; }
-
-    body[data-site="megapolis"] .stats__grid { gap: 14px !important; }
-    body[data-site="megapolis"] .stats__item { padding: 10px !important; }
-
-    /* hero__search padding override usunieta - oryginalne rozmiary */
-
-    /* Programs - bliska siatka */
-    body[data-site="megapolis"] .programs__grid { gap: 14px !important; }
-    body[data-site="megapolis"] .programs__content { padding: 20px 24px !important; }
-
-    /* Why-us - kompakt */
-    body[data-site="megapolis"] .why-us__grid { gap: 14px !important; }
-    body[data-site="megapolis"] .why-us__card { padding: 18px !important; }
-
-    /* Headers wewnatrz sekcji */
-    body[data-site="megapolis"] .section__header { margin-bottom: 12px !important; }
-    body[data-site="megapolis"] .section__title { margin-bottom: 6px !important; font-size: clamp(24px, 3.2vw, 38px) !important; }
-    body[data-site="megapolis"] .section__subtitle { font-size: 13px !important; line-height: 1.5 !important; }
-    body[data-site="megapolis"] .section__eyebrow { margin-bottom: 4px !important; font-size: 11px !important; }
-
-    /* Footer zbity */
-    body[data-site="megapolis"] .footer__main { padding-bottom: 20px !important; gap: 18px !important; }
-    body[data-site="megapolis"] .footer__bottom { padding: 12px 0 !important; }
-    body[data-site="megapolis"] .footer__col h4 { margin-bottom: 8px !important; }
-    body[data-site="megapolis"] .footer__col ul li { margin-bottom: 4px !important; }
-
-    /* Hero - oryginalne rozmiary (wszystkie compact overrides usuniete) */
-
-    /* =========================================================================
-       SHOWCASE — premium minimal. Pierwsza sekcja po hero, integrowana wizualnie
-       z portfolio-hub ponizej przez zgodny krem + brass akcenty. Czysto, nie
-       obladowane, zdjecie dominuje. Tylko esencja: status + nazwa + lokalizacja
-       + cena od + strzalka. Reszta w podstronie.
-       ========================================================================= */
-    .showcase {
-      position: relative; z-index: 5;
-      padding: 88px 0 72px;
-      background: #f4f2ec;
-      overflow: hidden;
-      transform-origin: center top;
-      will-change: transform, border-radius;
-    }
-    /* Subtelna tekstura tla - radial gradients, ledwo zauwazalne */
-    .showcase::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 380px;
-      background:
-        radial-gradient(ellipse 800px 500px at 85% -20%, rgba(201, 165, 92, 0.06), transparent 70%),
-        radial-gradient(ellipse 600px 360px at 15% 0%, rgba(0, 60, 113, 0.04), transparent 70%);
-      pointer-events: none; z-index: 0;
-    }
-    .showcase__container {
-      position: relative; z-index: 1;
-      max-width: 1320px; margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    /* === HEADER - jedna linia, elegancki layout === */
-    .showcase__head {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 52px;
-    }
-    .showcase__eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
-      color: #8a6e2f;
-      padding: 8px 14px;
-      background: rgba(201, 165, 92, 0.1);
-      border: 1px solid rgba(201, 165, 92, 0.25);
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
-    .showcase__eyebrow-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #e8414c;
-      box-shadow: 0 0 0 3px rgba(232, 65, 76, 0.2);
-      animation: scPulse 2s infinite;
-    }
-    @keyframes scPulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(232, 65, 76, 0.2); }
-      50%      { box-shadow: 0 0 0 6px rgba(232, 65, 76, 0.02); }
-    }
-    .showcase__title {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(28px, 3.4vw, 42px);
-      font-weight: 500; line-height: 1.05;
-      letter-spacing: -0.8px;
-      color: var(--brand-night, #003C71);
-      margin: 0;
-    }
-    .showcase__title em {
-      font-style: italic; font-weight: 300;
-      color: #c9a55c;
-    }
-    .showcase__link {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--brand-night, #003C71);
-      text-decoration: none;
-      padding-bottom: 4px;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-      white-space: nowrap;
-      opacity: 0.75;
-    }
-    .showcase__link:hover {
-      opacity: 1;
-      color: #c9a55c;
-      border-bottom-color: currentColor;
-    }
-    .showcase__link svg { transition: transform 0.3s ease; }
-    .showcase__link:hover svg { transform: translateX(4px); }
-
-    /* === RAIL - horizontal scroll z oddechem === */
-    .showcase__rail {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(340px, 1fr);
-      gap: 28px;
-      overflow-x: auto;
-      overflow-y: visible;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      padding: 4px 40px 24px;
-      margin: 0 -40px;
-      scroll-behavior: smooth;
-      scroll-padding-left: 40px;
-    }
-    .showcase__rail::-webkit-scrollbar { display: none; }
-
-    /* === CARD - premium minimal. Zdjecie dominuje, minimum tekstu. === */
-    .sc-card {
-      position: relative;
-      aspect-ratio: 4 / 5;
-      border-radius: 16px;
-      overflow: hidden;
-      text-decoration: none;
-      color: #fff;
-      scroll-snap-align: start;
-      background: #e6dfd0;
-      box-shadow: 0 20px 50px -20px rgba(0, 30, 60, 0.22);
-      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  box-shadow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: block;
-      min-height: 440px;
-    }
-    .sc-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 40px 80px -18px rgba(0, 30, 60, 0.38);
-    }
-    .sc-card__img {
-      position: absolute; inset: 0; z-index: 0;
-      overflow: hidden;
-      border-radius: 16px;
-    }
-    .sc-card__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: block;
-    }
-    .sc-card:hover .sc-card__img img { transform: scale(1.08); }
-
-    /* Gradient overlay - tylko na dole, clean na gorze */
-    .sc-card::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0) 45%,
-        rgba(0, 15, 30, 0.55) 80%,
-        rgba(0, 15, 30, 0.92) 100%);
-      transition: background 0.5s ease;
-    }
-
-    /* Status - glass pill top-left, subtelny */
-    .sc-card__status {
-      position: absolute; top: 18px; left: 18px;
-      z-index: 3;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px;
-      font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: var(--brand-night, #003C71);
-      border-radius: 9999px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    }
-    .sc-card__status::before {
-      content: ''; width: 5px; height: 5px; border-radius: 50%;
-    }
-    .sc-card__status--sale  { color: #c53030; }
-    .sc-card__status--sale::before  { background: #e8414c; }
-    .sc-card__status--ready { color: #1f6f46; }
-    .sc-card__status--ready::before { background: #2e8b57; }
-    .sc-card__status--soon  { color: #6e5327; }
-    .sc-card__status--soon::before  { background: #c9a96e; }
-
-    /* Body - 3 kolumny: nazwa + lokalizacja / cena / strzalka */
-    .sc-card__body {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      z-index: 2;
-      padding: 28px 24px 24px;
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      grid-template-areas: "names price arrow";
-      gap: 16px;
-      align-items: end;
-    }
-    .sc-card__names { grid-area: names; min-width: 0; }
-    .sc-card__name {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: clamp(19px, 1.7vw, 23px);
-      font-weight: 700;
-      letter-spacing: -0.4px;
-      line-height: 1.18;
-      color: #fff;
-      margin: 0 0 5px;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-    }
-    .sc-card__loc {
-      display: block;
-      font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.78);
-    }
-    .sc-card__price {
-      grid-area: price;
-      display: flex; flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
-      padding-right: 2px;
-    }
-    .sc-card__price-lbl {
-      font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      margin-bottom: 3px;
-    }
-    .sc-card__price-val {
-      font-family: 'Ubuntu', sans-serif;
-      font-size: 13px; font-weight: 800;
-      color: #fff;
-      white-space: nowrap;
-      letter-spacing: -0.1px;
-    }
-    .sc-card__arrow {
-      grid-area: arrow;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #fff;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .sc-card:hover .sc-card__arrow {
-      background: #c9a55c;
-      border-color: #c9a55c;
-      color: var(--brand-night, #003C71);
-      transform: translateX(4px);
-    }
-
-    /* === FOOT - progress bar + arrows, minimalisticzne === */
-    .showcase__foot {
-      display: flex; align-items: center; gap: 32px;
-      margin-top: 44px;
-    }
-    .showcase__progress {
-      flex: 1;
-      height: 1px;
-      background: rgba(0, 60, 113, 0.1);
-      position: relative;
-    }
-    .showcase__progress-bar {
-      position: absolute; left: 0; top: -0.5px; bottom: -0.5px;
-      width: 22%;
-      background: linear-gradient(90deg, var(--brand-night, #003C71), #c9a55c);
-      transition: left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.5s ease;
-    }
-    .showcase__nav { display: flex; gap: 10px; }
-    .showcase__arrow {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: transparent;
-      border: 1px solid rgba(0, 60, 113, 0.18);
-      color: var(--brand-night, #003C71);
-      cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .showcase__arrow:hover {
-      background: var(--brand-night, #003C71);
-      border-color: var(--brand-night, #003C71);
-      color: #fff;
-    }
-    .showcase__arrow:disabled {
-      opacity: 0.28; cursor: not-allowed;
-    }
-    .showcase__arrow:disabled:hover {
-      background: transparent;
-      color: var(--brand-night, #003C71);
-    }
-
-    /* === REVEAL ANIMATIONS - kaskadowo, miekko === */
-    [data-sc-anim="head"] > * {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .showcase.is-revealed [data-sc-anim="head"] > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-    .showcase.is-revealed [data-sc-anim="head"] > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
-    .showcase.is-revealed [data-sc-anim="head"] > *:nth-child(3) { opacity: 0.75; transform: translateY(0); transition-delay: 0.32s; }
-
-    [data-sc-anim="card"] {
-      opacity: 0;
-      transform: translateY(40px) scale(0.97);
-    }
-    .showcase.is-revealed [data-sc-anim="card"] {
-      opacity: 1; transform: translateY(0) scale(1);
-      transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  box-shadow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .showcase.is-revealed [data-sc-anim="card"]:nth-of-type(1) { transition-delay: 0.48s; }
-    .showcase.is-revealed [data-sc-anim="card"]:nth-of-type(2) { transition-delay: 0.60s; }
-    .showcase.is-revealed [data-sc-anim="card"]:nth-of-type(3) { transition-delay: 0.72s; }
-    .showcase.is-revealed [data-sc-anim="card"]:nth-of-type(4) { transition-delay: 0.84s; }
-    .showcase.is-revealed [data-sc-anim="card"]:nth-of-type(5) { transition-delay: 0.96s; }
-
-    [data-sc-anim="foot"] {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .showcase.is-revealed [data-sc-anim="foot"] {
-      opacity: 1; transform: translateY(0);
-      transition-delay: 1.1s;
-    }
-
-    @media (max-width: 920px) {
-      .showcase { padding: 56px 0 48px; }
-      .showcase__container { padding: 0 24px; }
-      .showcase__head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 30px; }
-      .showcase__link { justify-self: start; }
-      .showcase__rail { margin: 0 -24px; padding: 4px 24px 20px; grid-auto-columns: minmax(280px, 1fr); gap: 18px; scroll-padding-left: 24px; }
-      .sc-card { min-height: 380px; aspect-ratio: 3 / 4; }
-      .sc-card__body { padding: 20px 18px 18px; grid-template-columns: 1fr auto; grid-template-areas: "names price" "arrow arrow"; gap: 12px; }
-      .sc-card__arrow { justify-self: end; }
-      .showcase__foot { gap: 20px; margin-top: 28px; }
-    }
-
-    /* (stare hero-offers usuniete) */
-  </style>
 </head>
-<body data-site="megapolis">
+<body>
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
     <div class="page-loader__inner">
@@ -1168,129 +260,160 @@
     <!-- Spacer: pushes content below the fixed hero -->
     <div class="hero-spacer"></div>
 
-    <!-- =====================================================================
-         SHOWCASE - premium prezentacja inwestycji tuz pod hero (po scrollu).
-         Landing -> scroll -> od razu realne oferty.
-         ===================================================================== -->
-    <section class="showcase" id="showcase">
-      <div class="showcase__container">
-        <header class="showcase__head" data-sc-anim="head">
-          <span class="showcase__eyebrow">
-            <span class="showcase__eyebrow-dot" aria-hidden="true"></span>
-            AKTUALNA OFERTA
-          </span>
-          <h2 class="showcase__title">Osiedla <em>w&nbsp;sprzedaży</em></h2>
-          <a class="showcase__link" href="/wyszukiwarka/">
-            Wszystkie 10 inwestycji
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+    <!-- ===================================================================
+         SALES HUB — pierwsza rzecz po hero. Wszystkie inwestycje w sprzedazy
+         z kluczowymi parametrami (status, liczba mieszkan, cena, CTA).
+         Zaprojektowany pod konwersje: user od razu widzi co kupic.
+         =================================================================== -->
+    <section class="sales-hub" id="salesHub">
+      <!-- Hot offers ticker: aktualne promocje i nowosci -->
+      <div class="sales-hot" role="marquee" aria-label="Aktualne promocje">
+        <div class="sales-hot__track">
+          <span class="sales-hot__flame" aria-hidden="true">🔥</span>
+          <span class="sales-hot__item"><strong>OZON III:</strong>&nbsp;-5% na 1-pokojowe</span>
+          <span class="sales-hot__dot">·</span>
+          <span class="sales-hot__item"><strong>Nowe Osiedle Fi:</strong>&nbsp;startuje sprzedaż etapu II</span>
+          <span class="sales-hot__dot">·</span>
+          <span class="sales-hot__item"><strong>CLOU Lindego:</strong>&nbsp;ostatnie 3 mieszkania</span>
+          <span class="sales-hot__dot">·</span>
+          <span class="sales-hot__item"><strong>Promocja grudniowa:</strong>&nbsp;do 31.12</span>
+          <span class="sales-hot__dot">·</span>
+          <span class="sales-hot__item"><strong>Michalczyka 15:</strong>&nbsp;rozpoczeto zapisy VIP</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <header class="sales-hub__head" data-reveal>
+          <span class="sales-hub__eyebrow">OFERTA AKTUALNA</span>
+          <h2 class="sales-hub__title">Mieszkania <em>w&nbsp;sprzedaży</em></h2>
+          <p class="sales-hub__sub">5&nbsp;inwestycji, 100+ mieszkań dostępnych teraz. Wybierz osiedle i&nbsp;przejdź prosto do&nbsp;ofert — bez&nbsp;rejestracji, ceny i&nbsp;rzuty online.</p>
         </header>
 
-        <div class="showcase__rail" id="showcaseRail">
+        <div class="sales-grid" data-reveal>
 
-          <a class="sc-card" href="/wyszukiwarka-3d/?inv=fi" data-sc-anim="card">
-            <div class="sc-card__img"><img src="/media/fi/fi-new-sunset.jpg" alt="Nowe Osiedle Fi" loading="lazy"></div>
-            <span class="sc-card__status sc-card__status--sale">W&nbsp;sprzedaży</span>
-            <div class="sc-card__body">
-              <div class="sc-card__names">
-                <h3 class="sc-card__name">Nowe&nbsp;Osiedle&nbsp;Fi</h3>
-                <span class="sc-card__loc">Kraków&nbsp;· Podgórze</span>
+          <!-- Fi (w sprzedazy - priority) -->
+          <a class="sales-card sales-card--hot" href="/wyszukiwarka-3d/?inv=fi">
+            <div class="sales-card__media">
+              <img src="/media/fi/fi-new-sunset.jpg" alt="Nowe Osiedle Fi" loading="lazy">
+              <span class="sales-card__status sales-card__status--building">W&nbsp;sprzedaży</span>
+              <span class="sales-card__promo">NOWY ETAP</span>
+            </div>
+            <div class="sales-card__body">
+              <div class="sales-card__head">
+                <h3 class="sales-card__name">Nowe Osiedle Fi</h3>
+                <p class="sales-card__loc">Kraków&nbsp;· Stare Podgórze</p>
               </div>
-              <div class="sc-card__price">
-                <span class="sc-card__price-lbl">od</span>
-                <span class="sc-card__price-val">8&nbsp;200&nbsp;zł/m²</span>
+              <div class="sales-card__specs">
+                <div class="sales-card__spec"><span class="sales-card__spec-num">24</span><span class="sales-card__spec-lbl">mieszkania</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">od&nbsp;8&nbsp;200</span><span class="sales-card__spec-lbl">zł/m²</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">Q4&nbsp;2026</span><span class="sales-card__spec-lbl">oddanie</span></div>
               </div>
-              <span class="sc-card__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </span>
+              <span class="sales-card__cta">Zobacz mieszkania<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </a>
 
-          <a class="sc-card" href="/wyszukiwarka-3d/?inv=ozon" data-sc-anim="card">
-            <div class="sc-card__img"><img src="/media/ozon/ozon-ii-6.webp" alt="Osiedle OZON III" loading="lazy"></div>
-            <span class="sc-card__status sc-card__status--sale">W&nbsp;sprzedaży</span>
-            <div class="sc-card__body">
-              <div class="sc-card__names">
-                <h3 class="sc-card__name">Osiedle OZON&nbsp;III</h3>
-                <span class="sc-card__loc">Kraków&nbsp;· Prądnik Biały</span>
+          <!-- OZON III -->
+          <a class="sales-card" href="/wyszukiwarka-3d/?inv=ozon">
+            <div class="sales-card__media">
+              <img src="/media/ozon/ozon-ii-6.webp" alt="Osiedle OZON III" loading="lazy">
+              <span class="sales-card__status sales-card__status--building">W&nbsp;sprzedaży</span>
+              <span class="sales-card__promo sales-card__promo--discount">-5%</span>
+            </div>
+            <div class="sales-card__body">
+              <div class="sales-card__head">
+                <h3 class="sales-card__name">Osiedle OZON <em>III</em></h3>
+                <p class="sales-card__loc">Kraków&nbsp;· Prądnik Biały</p>
               </div>
-              <div class="sc-card__price">
-                <span class="sc-card__price-lbl">od</span>
-                <span class="sc-card__price-val">8&nbsp;500&nbsp;zł/m²</span>
+              <div class="sales-card__specs">
+                <div class="sales-card__spec"><span class="sales-card__spec-num">31</span><span class="sales-card__spec-lbl">mieszkań</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">od&nbsp;8&nbsp;500</span><span class="sales-card__spec-lbl">zł/m²</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">Q2&nbsp;2027</span><span class="sales-card__spec-lbl">oddanie</span></div>
               </div>
-              <span class="sc-card__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </span>
+              <span class="sales-card__cta">Zobacz mieszkania<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </a>
 
-          <a class="sc-card" href="/wyszukiwarka-3d/?inv=clou" data-sc-anim="card">
-            <div class="sc-card__img"><img src="/media/clou/lindego-panorama.jpg" alt="CLOU Lindego" loading="lazy"></div>
-            <span class="sc-card__status sc-card__status--ready">Gotowe</span>
-            <div class="sc-card__body">
-              <div class="sc-card__names">
-                <h3 class="sc-card__name">CLOU Lindego</h3>
-                <span class="sc-card__loc">Kraków&nbsp;· Bronowice</span>
+          <!-- CLOU (ostatnie mieszkania - urgency) -->
+          <a class="sales-card" href="/wyszukiwarka-3d/?inv=clou">
+            <div class="sales-card__media">
+              <img src="/media/clou/lindego-panorama.jpg" alt="CLOU Lindego" loading="lazy">
+              <span class="sales-card__status sales-card__status--ready">Gotowe</span>
+              <span class="sales-card__promo sales-card__promo--urgent">3 ostatnie</span>
+            </div>
+            <div class="sales-card__body">
+              <div class="sales-card__head">
+                <h3 class="sales-card__name">CLOU Lindego</h3>
+                <p class="sales-card__loc">Kraków&nbsp;· Bronowice</p>
               </div>
-              <div class="sc-card__price">
-                <span class="sc-card__price-lbl">od</span>
-                <span class="sc-card__price-val">9&nbsp;200&nbsp;zł/m²</span>
+              <div class="sales-card__specs">
+                <div class="sales-card__spec"><span class="sales-card__spec-num">3</span><span class="sales-card__spec-lbl">mieszkania</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">od&nbsp;9&nbsp;200</span><span class="sales-card__spec-lbl">zł/m²</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">Premium</span><span class="sales-card__spec-lbl">standard</span></div>
               </div>
-              <span class="sc-card__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </span>
+              <span class="sales-card__cta">Zobacz mieszkania<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </a>
 
-          <a class="sc-card" href="/wyszukiwarka-3d/?inv=link" data-sc-anim="card">
-            <div class="sc-card__img"><img src="/media/link/link-1.webp" alt="LINK Bunscha" loading="lazy"></div>
-            <span class="sc-card__status sc-card__status--ready">Gotowe</span>
-            <div class="sc-card__body">
-              <div class="sc-card__names">
-                <h3 class="sc-card__name">LINK Bunscha</h3>
-                <span class="sc-card__loc">Kraków&nbsp;· Dębniki</span>
+          <!-- LINK Bunscha -->
+          <a class="sales-card" href="/wyszukiwarka-3d/?inv=link">
+            <div class="sales-card__media">
+              <img src="/media/link/link-1.webp" alt="LINK Bunscha" loading="lazy">
+              <span class="sales-card__status sales-card__status--ready">Gotowe</span>
+            </div>
+            <div class="sales-card__body">
+              <div class="sales-card__head">
+                <h3 class="sales-card__name">LINK Bunscha</h3>
+                <p class="sales-card__loc">Kraków&nbsp;· Dębniki</p>
               </div>
-              <div class="sc-card__price">
-                <span class="sc-card__price-lbl">od</span>
-                <span class="sc-card__price-val">8&nbsp;400&nbsp;zł/m²</span>
+              <div class="sales-card__specs">
+                <div class="sales-card__spec"><span class="sales-card__spec-num">7</span><span class="sales-card__spec-lbl">mieszkań</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">od&nbsp;8&nbsp;400</span><span class="sales-card__spec-lbl">zł/m²</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">Komfort</span><span class="sales-card__spec-lbl">standard</span></div>
               </div>
-              <span class="sc-card__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </span>
+              <span class="sales-card__cta">Zobacz mieszkania<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </a>
 
-          <a class="sc-card" href="/wyszukiwarka/?miasto=wroclaw" data-sc-anim="card">
-            <div class="sc-card__img"><img src="https://megapolis.pl/wp-content/uploads/2025/10/WIDOK_5-1-1024x576.jpg" alt="Michalczyka 15" loading="lazy"></div>
-            <span class="sc-card__status sc-card__status--soon">Wkrótce</span>
-            <div class="sc-card__body">
-              <div class="sc-card__names">
-                <h3 class="sc-card__name">Michalczyka 15</h3>
-                <span class="sc-card__loc">Wrocław&nbsp;· Szczepin</span>
+          <!-- Michalczyka 15 (wkrotce - zapisy VIP) -->
+          <a class="sales-card sales-card--soon" href="/wyszukiwarka/?miasto=wroclaw">
+            <div class="sales-card__media">
+              <img src="https://megapolis.pl/wp-content/uploads/2025/10/WIDOK_5-1-1024x576.jpg" alt="Michalczyka 15" loading="lazy">
+              <span class="sales-card__status sales-card__status--soon">Wkrótce</span>
+              <span class="sales-card__promo sales-card__promo--vip">Zapisy VIP</span>
+            </div>
+            <div class="sales-card__body">
+              <div class="sales-card__head">
+                <h3 class="sales-card__name">Michalczyka 15</h3>
+                <p class="sales-card__loc">Wrocław&nbsp;· Szczepin</p>
               </div>
-              <div class="sc-card__price">
-                <span class="sc-card__price-lbl">start</span>
-                <span class="sc-card__price-val">Q1&nbsp;2027</span>
+              <div class="sales-card__specs">
+                <div class="sales-card__spec"><span class="sales-card__spec-num">80+</span><span class="sales-card__spec-lbl">mieszkań</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">Q1&nbsp;2027</span><span class="sales-card__spec-lbl">start sprzedaży</span></div>
+                <div class="sales-card__spec"><span class="sales-card__spec-num">VIP</span><span class="sales-card__spec-lbl">pierwszeństwo</span></div>
               </div>
-              <span class="sc-card__arrow" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </span>
+              <span class="sales-card__cta">Zapisz się na VIP<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </a>
 
         </div>
 
-        <div class="showcase__foot" data-sc-anim="foot">
-          <div class="showcase__progress">
-            <div class="showcase__progress-bar" id="showcaseProgress"></div>
+        <!-- Social proof strip: trust-building dla kupujacych -->
+        <div class="sales-trust" data-reveal>
+          <div class="sales-trust__item">
+            <span class="sales-trust__num">12</span>
+            <span class="sales-trust__lbl">rezerwacji w&nbsp;tym tygodniu</span>
           </div>
-          <div class="showcase__nav">
-            <button type="button" class="showcase__arrow" id="showcasePrev" aria-label="Poprzednie">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button type="button" class="showcase__arrow" id="showcaseNext" aria-label="Następne">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
+          <div class="sales-trust__item">
+            <span class="sales-trust__num">280+</span>
+            <span class="sales-trust__lbl">zadowolonych klientów</span>
+          </div>
+          <div class="sales-trust__item">
+            <span class="sales-trust__num">4.9<small>/5</small></span>
+            <span class="sales-trust__lbl">ocena Google Business</span>
+          </div>
+          <div class="sales-trust__item">
+            <span class="sales-trust__num">37</span>
+            <span class="sales-trust__lbl">lat na&nbsp;rynku od&nbsp;1989</span>
           </div>
         </div>
       </div>
@@ -2128,7 +1251,6 @@
 
   </div><!-- .intro-dome -->
   </section><!-- .intro-reveal -->
-
   </main>
 
   <!-- Footer -->
@@ -2906,79 +2028,6 @@
       }
     });
   })();
-  </script>
-
-  <script>
-    // Showcase reveal - kaskadowa animacja wjazdu sekcji przy scrollu
-    (function () {
-      var sec = document.getElementById('showcase');
-      if (!sec) return;
-      if (!('IntersectionObserver' in window)) { sec.classList.add('is-revealed'); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            sec.classList.add('is-revealed');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-      io.observe(sec);
-    })();
-
-    // Showcase - przewijanie strzalkami + progress bar
-    (function () {
-      var rail = document.getElementById('showcaseRail');
-      var prev = document.getElementById('showcasePrev');
-      var next = document.getElementById('showcaseNext');
-      var prog = document.getElementById('showcaseProgress');
-      if (!rail || !prev || !next) return;
-      var cards = rail.querySelectorAll('.showcase-card');
-      var total = cards.length;
-
-      function step() { return rail.clientWidth * 0.7; }
-      function scrollDir(dir) {
-        rail.scrollBy({ left: dir * step(), behavior: 'smooth' });
-      }
-      function update() {
-        var max = rail.scrollWidth - rail.clientWidth;
-        if (max <= 0) {
-          if (prog) { prog.style.left = '0'; prog.style.width = '100%'; }
-          prev.disabled = true; next.disabled = true;
-          return;
-        }
-        var pct = Math.max(0, Math.min(1, rail.scrollLeft / max));
-        var visible = rail.clientWidth / rail.scrollWidth;
-        if (prog) {
-          prog.style.left = (pct * (100 - visible * 100)) + '%';
-          prog.style.width = (visible * 100) + '%';
-        }
-        prev.disabled = rail.scrollLeft <= 2;
-        next.disabled = rail.scrollLeft >= max - 2;
-      }
-      prev.addEventListener('click', function () { scrollDir(-1); });
-      next.addEventListener('click', function () { scrollDir(1); });
-      rail.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
-      update();
-    })();
-
-    // Promo bar - rozwijanie/zwijanie przy scrollu (IntersectionObserver)
-    // Domyslnie bar jest widoczny (fallback). JS dodaje .is-folded na starcie
-    // i usuwa gdy bar wjedzie w viewport. Fold ponownie gdy opusci viewport.
-    (function () {
-      var bar = document.querySelector('.promo-bar');
-      if (!bar) return;
-      if (!('IntersectionObserver' in window)) return; // brak IO - bar zostaje widoczny
-      bar.classList.add('is-folded'); // start w stanie zwinietym
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          // Gdy pasek wjedzie w viewport -> rozwin (usun is-folded)
-          // Gdy wyjedzie -> zwiN z powrotem
-          bar.classList.toggle('is-folded', !e.isIntersecting);
-        });
-      }, { threshold: 0.35 });
-      io.observe(bar);
-    })();
   </script>
 </body>
 </html>

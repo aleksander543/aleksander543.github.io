@@ -1,0 +1,19 @@
+# robots.txt dla megapolis.pl
+# Deweloper mieszkaniowy - Kraków/Wrocław
+
+User-agent: *
+Allow: /
+
+# Pomijamy zasoby techniczne
+Disallow: /netlify/
+Disallow: /.netlify/
+Disallow: /api/
+Disallow: /*.bak
+Disallow: /*.v0-*
+
+# Pomijamy strony niefunkcjonalne
+Disallow: /404/
+Disallow: /ulubione/
+
+# Sitemap
+Sitemap: https://megapolis.pl/sitemap.xml

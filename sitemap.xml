@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+
+  <!-- Strona główna -->
+  <url>
+    <loc>https://megapolis.pl/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://megapolis.pl/media/megapolis-logo-whitetext.svg</image:loc>
+      <image:title>Megapolis — deweloper mieszkaniowy Kraków</image:title>
+    </image:image>
+  </url>
+
+  <!-- Komercyjne - priorytetowo -->
+  <url>
+    <loc>https://megapolis.pl/wyszukiwarka/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/wyszukiwarka-3d/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/oferta-specjalna/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/realizacje/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/lokale-uslugowe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Wspierające sprzedaż -->
+  <url>
+    <loc>https://megapolis.pl/finansowanie/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/program-wykonczenia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/nasze-standardy/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- O firmie -->
+  <url>
+    <loc>https://megapolis.pl/o-nas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/o-nas/historia/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/o-nas/zespol/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/o-nas/misja/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/o-nas/holding/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Kontakt i wspierające -->
+  <url>
+    <loc>https://megapolis.pl/kontakt/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/generalny-wykonawca/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/kariera/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://megapolis.pl/praca/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- Aktualności -->
+  <url>
+    <loc>https://megapolis.pl/aktualnosci/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Informacje prawne -->
+  <url>
+    <loc>https://megapolis.pl/polityka-prywatnosci/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
