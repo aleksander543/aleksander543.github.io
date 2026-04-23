@@ -1118,15 +1118,17 @@
       <div class="hero__video-wrap">
         <video
           id="heroVideo"
-          src="/media/hero-intro.mp4"
           autoplay
           muted
           loop
           playsinline
           preload="auto"
-          poster="https://megapolis.pl/wp-content/uploads/2024/07/ozon-III-noc-max-res-1-1024x576.webp"
+          poster="/media/ozon/ozon-ii-6.webp"
           aria-label="Intro Megapolis"
-        ></video>
+        >
+          <source src="/media/hero-intro.mp4" type="video/mp4">
+          <source src="https://megapolis.pl/wp-content/uploads/2024/07/ozon-III-noc-max-res-1-1024x576.webp" type="image/webp">
+        </video>
       </div>
       <!-- Top fade overlay — blends header into video (Visit Red Sea style) -->
       <div class="hero__fade-top"></div>
