@@ -56,25 +56,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const showcase = document.getElementById('showcase');
     const introReveal = document.getElementById('introReveal');
 
-    if (showcase) {
-      // Scroll-scrub: showcase wychodzi z WYRAZISTEJ kopulki z silna krzywizna gora
-      // Scale mocniejszy (0.78 -> 1) + wieksze rounded corners + dluzszy scroll range
-      gsap.fromTo(showcase,
-        { scale: 0.78, borderTopLeftRadius: '100vw', borderTopRightRadius: '100vw' },
-        {
-          scale: 1,
-          borderTopLeftRadius: '0px',
-          borderTopRightRadius: '0px',
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: showcase,
-            start: 'top 95%',
-            end: 'top 10%',
-            scrub: 1.2,
+    // Dome reveal - IntersectionObserver (bez scroll-scrub laga).
+    // Stosowany na .showcase (sekcja "Osiedla w sprzedazy" - tuz po hero)
+    // oraz na .intro-dome (wrap portfolio-hub "Wszystkie inwestycje Megapolis").
+    (function () {
+      var targets = [
+        document.getElementById('showcase'),
+        document.getElementById('introDome')
+      ].filter(Boolean);
+      if (!targets.length) return;
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (t) { t.classList.add('is-dome-revealed'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-dome-revealed');
+            io.unobserve(e.target);
           }
-        }
-      );
-    }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -80px 0px' });
+      targets.forEach(function (t) { io.observe(t); });
+    })();
 
     if (introReveal) {
 
@@ -1234,22 +1238,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ============================================
-     PORTFOLIO — alfabetyczna kolejność inwestycji + filtr statusu
-     Wszystkie | W sprzedaży (building) | Zrealizowane (done) | Wkrótce (planned)
+     PORTFOLIO — kolejność z HTML zachowana (CLOU, Michalczyka, Fi, OZON III, ...)
+     Sortowanie alfabetyczne WYLACZONE - HTML order jest wlasciwy priorytet sprzedazowy.
+     Filtr statusu dalej dziala: Wszystkie | W sprzedaży | Zrealizowane | Wkrótce
      ============================================ */
   (function () {
     const grid = document.querySelector('.allinv__grid');
-    if (grid) {
-      // Sortuj karty alfabetycznie po nazwie (wartości data-status zostają — filtr działa)
-      const all = Array.from(grid.querySelectorAll('.allinv__card'));
-      all.sort((a, b) => {
-        const na = (a.querySelector('.allinv__card-name')?.textContent || '').trim();
-        const nb = (b.querySelector('.allinv__card-name')?.textContent || '').trim();
-        return na.localeCompare(nb, 'pl', { sensitivity: 'base' });
-      });
-      // Wstaw z powrotem w nowej kolejności
-      all.forEach(card => grid.appendChild(card));
-    }
+    // UWAGA: nie sortujemy - kolejnosc z HTML jest rozmyslnie ustawiona
+    // (CLOU Lindego, Michalczyka 15, Nowe Osiedle Fi, Osiedle OZON III, ...)
 
     const filterBtns = document.querySelectorAll('.allinv__filter');
     const cards      = document.querySelectorAll('.allinv__grid .allinv__card');

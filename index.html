@@ -130,6 +130,98 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* ============================================================
+       FOOTER DOMAIN MARK — wielka wyrazista domena (brand signature)
+       Megapolis.pl jako duzy editorial wordmark na dole footera.
+       ============================================================ */
+    .footer__domain-mark {
+      text-align: center;
+      padding: 48px 24px 32px;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    /* Brass accent line ponad domeną */
+    .footer__domain-mark::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #c9a55c 50%,
+        transparent 100%);
+    }
+    .footer__domain-url {
+      display: inline-block;
+      font-family: 'Ubuntu', sans-serif;
+      text-decoration: none;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  filter 0.4s ease;
+    }
+    .footer__domain-url:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+    }
+    .footer__domain-protocol {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0;
+      vertical-align: top;
+      margin-right: 2px;
+    }
+    .footer__domain-name {
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 900;
+      color: #ffffff;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.78) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: lowercase;
+    }
+    .footer__domain-tld {
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 300;
+      color: #c9a55c;
+      font-style: italic;
+      letter-spacing: -3px;
+    }
+    .footer__domain-sub {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Strengthen footer bottom (copyright) */
+    .footer__bottom p {
+      font-size: 13px !important;
+      color: rgba(255, 255, 255, 0.55) !important;
+      letter-spacing: 0.3px !important;
+    }
+    .footer__bottom p strong {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 700 !important;
+    }
+
+    @media (max-width: 640px) {
+      .footer__domain-mark { padding: 36px 16px 24px; }
+      .footer__domain-url { letter-spacing: -1.5px; }
+      .footer__domain-protocol { font-size: 20px; }
+      .footer__domain-name,
+      .footer__domain-tld { font-size: 52px; }
+      .footer__domain-sub { font-size: 9px; letter-spacing: 2px; }
+    }
+
     /* ===== SALES HUB — sprzedazowa sekcja ponad hero (landing) =====
        Wstawiana po hero-spacer, przed intro-reveal. z-index 4 zeby byla
        nad fixed hero w trakcie scrollu. */
@@ -531,8 +623,258 @@
     body[data-site="megapolis"] .finder::after { display: none !important; }
     body[data-site="megapolis"] .finder__group--type { margin-bottom: 8px !important; }
     body[data-site="megapolis"] .finder__eyebrow { margin: 2px 0 4px !important; font-size: 11px !important; }
-    body[data-site="megapolis"] .finder__title { margin: 0 0 6px !important; font-size: clamp(22px, 3vw, 34px) !important; }
+    /* Tytul "Wyszukiwarka mieszkan" - DUZY i WIDOCZNY (sprzedazowy focal point) */
+    body[data-site="megapolis"] .finder__title {
+      margin: 0 0 10px !important;
+      font-size: clamp(36px, 5.2vw, 58px) !important;
+      font-weight: 800 !important;
+      letter-spacing: -1.4px !important;
+      line-height: 1.02 !important;
+      color: var(--brand-night, #003C71) !important;
+    }
+    body[data-site="megapolis"] .finder__title em { font-weight: 400 !important; font-style: italic !important; color: #c9a55c !important; }
     body[data-site="megapolis"] .finder__caption { margin: 0 0 4px !important; font-size: 12px !important; }
+
+    /* Landing finder - PREMIUM WORLD-CLASS LAYOUT:
+       Top: filtry pelna szerokosc (2-col grid)
+       Bottom: [Przynaleznosci (lewo)] [Kompas (prawo)] - obie wycentrowane w swojej kolumnie */
+    body[data-site="megapolis"] .finder__filters--split {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-areas:
+        "main main"
+        "amenities compass" !important;
+      gap: 40px 56px !important;
+      max-width: 960px !important;
+      margin: 0 auto !important;
+      padding-bottom: 0 !important;
+      position: relative !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split::after { display: none !important; }
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-main {
+      grid-area: main !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    /* ===== BLOK PRZYNALEZNOSCI - soft cloud container (premium lux, kompakt) ===== */
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row {
+      grid-area: amenities !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 14px !important;
+      padding: 18px 22px !important;
+      background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(253, 251, 244, 0.5) 100%) !important;
+      border: 1px solid rgba(201, 165, 92, 0.18) !important;
+      border-radius: 48px !important;
+      box-shadow:
+        0 4px 16px rgba(0, 60, 113, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      position: relative !important;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row:hover {
+      border-color: rgba(201, 165, 92, 0.35) !important;
+      box-shadow:
+        0 8px 22px rgba(0, 60, 113, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row .finder__flabel {
+      margin: 0 !important;
+      text-align: center !important;
+      width: auto !important;
+      position: relative !important;
+      padding: 0 18px !important;
+    }
+    /* Delikatne brass kreski po bokach labeli (symetrycznie) */
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row .finder__flabel::before,
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row .finder__flabel::after,
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__flabel::before,
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__flabel::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 50% !important;
+      width: 26px !important;
+      height: 1px !important;
+      background: rgba(201, 165, 92, 0.5) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row .finder__flabel::before,
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__flabel::before {
+      right: 100% !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__bottom-row .finder__flabel::after,
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__flabel::after {
+      left: 100% !important;
+    }
+
+    body[data-site="megapolis"] .finder__filters--split .finder__features {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      max-width: 340px !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__feat-btn {
+      padding: 7px 14px !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.2px !important;
+      border-radius: 9999px !important;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__feat-btn:hover {
+      border-color: #c9a55c !important;
+      color: var(--brand-night, #003C71) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 16px rgba(201, 165, 92, 0.18) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__feat-btn.is-active {
+      background: var(--brand-night, #003C71) !important;
+      color: #fff !important;
+      border-color: var(--brand-night, #003C71) !important;
+    }
+    body[data-site="megapolis"] .finder__row {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 24px !important;
+      align-items: end !important;
+      margin-bottom: 0 !important;
+    }
+    body[data-site="megapolis"] .finder__field {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      min-width: 0 !important;
+    }
+    body[data-site="megapolis"] .finder__field--full { grid-column: 1 / -1 !important; }
+    body[data-site="megapolis"] .finder__flabel {
+      font-size: 11px !important;
+      letter-spacing: 2.5px !important;
+      font-weight: 700 !important;
+      color: var(--brand-night, #003C71) !important;
+      opacity: 0.72 !important;
+      margin: 0 !important;
+      text-align: left !important;
+    }
+
+    /* ===== KOMPAS - soft cloud container (kompakt, parity z przynaleznosciami) ===== */
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side {
+      grid-area: compass !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 18px 22px !important;
+      background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(253, 251, 244, 0.5) 100%) !important;
+      border: 1px solid rgba(201, 165, 92, 0.18) !important;
+      border-radius: 48px !important;
+      box-shadow:
+        0 4px 16px rgba(0, 60, 113, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      position: relative !important;
+      width: 100% !important;
+      max-width: none !important;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side:hover {
+      border-color: rgba(201, 165, 92, 0.35) !important;
+      box-shadow:
+        0 8px 22px rgba(0, 60, 113, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side::before { display: none !important; }
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__field {
+      align-items: center !important;
+      gap: 16px !important;
+      width: 100% !important;
+    }
+    body[data-site="megapolis"] .finder__filters--split .finder__filters-side .finder__flabel {
+      font-size: 11px !important;
+      letter-spacing: 2.5px !important;
+      text-align: center !important;
+      opacity: 0.72 !important;
+      width: auto !important;
+      position: relative !important;
+      padding: 0 18px !important;
+    }
+    body[data-site="megapolis"] .finder__rose {
+      width: 100% !important;
+      max-width: 220px !important;
+      margin: 0 auto !important;
+    }
+    body[data-site="megapolis"] .finder__rose-btn {
+      padding: 4px 2px !important;
+      border-radius: 8px !important;
+    }
+    body[data-site="megapolis"] .finder__rose-lbl {
+      font-size: 9px !important;
+      letter-spacing: 0.3px !important;
+    }
+    body[data-site="megapolis"] .finder__rose-arrow {
+      width: 12px !important;
+      height: 12px !important;
+    }
+    body[data-site="megapolis"] .finder__rose-center svg {
+      width: 32px !important;
+      height: 32px !important;
+    }
+    body[data-site="megapolis"] .finder__rose {
+      width: 100% !important;
+      max-width: 220px !important;
+      margin: 0 auto !important;
+    }
+    body[data-site="megapolis"] .finder__rose-btn {
+      padding: 6px 4px !important;
+      border-radius: 10px !important;
+      aspect-ratio: 1 !important;
+    }
+    body[data-site="megapolis"] .finder__rose-lbl {
+      font-size: 10px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.3px !important;
+      margin-top: 2px !important;
+    }
+    body[data-site="megapolis"] .finder__rose-arrow {
+      width: 14px !important;
+      height: 14px !important;
+    }
+    body[data-site="megapolis"] .finder__rose-center svg {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    /* Akcje (Edytuj filtry + Znajdz) - blisko pod kompasem, wycentrowane */
+    body[data-site="megapolis"] .finder__actions {
+      margin-top: 14px !important;
+      display: flex !important;
+      justify-content: center !important;
+      gap: 16px !important;
+      padding: 0 20px !important;
+    }
+
+    @media (max-width: 720px) {
+      body[data-site="megapolis"] .finder__filters--split {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: "main" "amenities" "compass" !important;
+        gap: 28px !important;
+        padding-bottom: 32px !important;
+      }
+      body[data-site="megapolis"] .finder__row {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+      body[data-site="megapolis"] .finder__rose { max-width: 240px !important; margin: 0 auto !important; }
+      body[data-site="megapolis"] .finder__actions { flex-direction: column !important; width: 100% !important; max-width: 320px !important; margin: 24px auto 0 !important; }
+    }
     body[data-site="megapolis"] .finder__cities { margin-bottom: 8px !important; gap: 8px !important; }
     body[data-site="megapolis"] .finder__tabs { padding: 6px 14px !important; }
     body[data-site="megapolis"] .finder__tab { padding: 8px 16px !important; }
@@ -544,12 +886,24 @@
 
     body[data-site="megapolis"] .allinv__grid { gap: 12px !important; }
 
-    /* Ograniczenie do 4 widocznych kart + gladkie pokazanie reszty */
-    body[data-site="megapolis"] .allinv__grid .allinv__card:nth-of-type(n+5):not(.is-revealed) {
-      display: none !important;
+    /* Ograniczenie do 4 widocznych kart - uzywamy position:absolute+visibility zamiast
+       display:none, zeby slider JS mogl wyliczyc wymiary i obrazki sie preload-owaly.
+       Po rozwinieciu karty pojawiaja sie gotowe (bez broken layout). */
+    body[data-site="megapolis"] .allinv__grid .allinv__card:nth-of-type(n+5) {
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      width: 380px !important;
+      visibility: hidden;
+      pointer-events: none;
     }
     body[data-site="megapolis"] .allinv.is-expanded .allinv__grid .allinv__card:nth-of-type(n+5) {
-      display: flex !important;
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: auto !important;
+      visibility: visible;
+      pointer-events: auto;
       animation: allinvCardIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
     body[data-site="megapolis"] .allinv.is-expanded .allinv__grid .allinv__card:nth-of-type(5)  { animation-delay: 0.05s; }
@@ -638,9 +992,28 @@
       border-radius: 0 !important;
     }
 
-    body[data-site="megapolis"] .invmap__wrap { margin-top: 0 !important; gap: 12px !important; }
-    body[data-site="megapolis"] .invmap__map-wrap { min-height: 380px !important; }
-    body[data-site="megapolis"] .invmap__map { height: 380px !important; }
+    body[data-site="megapolis"] .invmap__wrap {
+      margin-top: 0 !important;
+      gap: 12px !important;
+      align-items: start !important;   /* lista i mapa niezalezne wysokosci */
+    }
+    /* Mapa ma fixed height 420px - zero grey gap pod mapa */
+    body[data-site="megapolis"] .invmap__map-wrap {
+      min-height: 420px !important;
+      height: 420px !important;
+      position: relative !important;
+    }
+    body[data-site="megapolis"] .invmap__map {
+      position: absolute !important;
+      inset: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+    /* Lista - ma swoja wysokosc (scroll jesli za duzo) */
+    body[data-site="megapolis"] .invmap__list {
+      max-height: 420px !important;
+      overflow-y: auto !important;
+    }
 
     /* Zero margines miedzy sekcjami */
     body[data-site="megapolis"] main > section + section,
@@ -685,13 +1058,62 @@
        obladowane, zdjecie dominuje. Tylko esencja: status + nazwa + lokalizacja
        + cena od + strzalka. Reszta w podstronie.
        ========================================================================= */
+    /* === SHOWCASE - WYRAZISTY dome reveal, dluga plynna animacja (2.4s).
+       Scale 0.78 -> 1, border-radius 80vw -> 0. Bez przezroczystosci. */
     .showcase {
       position: relative; z-index: 5;
-      padding: 64px 0 56px;
+      padding: 64px 0 0;
       background: #f4f2ec;
-      overflow: hidden;
+      border: 0;
+      box-shadow: 0 -30px 60px rgba(0, 60, 113, 0.12);
+      transform: scale(0.78);
+      border-top-left-radius: 80vw;
+      border-top-right-radius: 80vw;
       transform-origin: center top;
+      transition: transform 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-top-left-radius 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-top-right-radius 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 2.4s cubic-bezier(0.2, 0.8, 0.2, 1);
       will-change: transform, border-radius;
+      overflow: hidden;
+    }
+    .showcase.is-dome-revealed {
+      transform: scale(1);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: 0 -8px 20px rgba(0, 60, 113, 0.04);
+    }
+    /* Portfolio-hub DOTYKA showcase - ten sam krem, zero edge */
+    body[data-site="megapolis"] .intro-reveal,
+    body[data-site="megapolis"] .portfolio-hub {
+      background: #f4f2ec !important;
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+    body[data-site="megapolis"] .intro-reveal { padding-top: 0 !important; margin-top: 0 !important; }
+    body[data-site="megapolis"] .portfolio-hub { padding-top: 32px !important; }
+
+    /* === INTRO-DOME - WYRAZISTY dome reveal, dluga plynna animacja (2.4s). === */
+    body[data-site="megapolis"] .intro-dome {
+      background: #f4f2ec !important;
+      transform: scale(0.78);
+      border-top-left-radius: 80vw;
+      border-top-right-radius: 80vw;
+      transform-origin: center top;
+      box-shadow: 0 -30px 60px rgba(0, 60, 113, 0.12);
+      transition: transform 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-top-left-radius 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-top-right-radius 2.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 2.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform, border-radius;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+    body[data-site="megapolis"] .intro-dome.is-dome-revealed {
+      transform: scale(1);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: 0 -8px 20px rgba(0, 60, 113, 0.04);
     }
     /* Subtelna tekstura tla - radial gradients, ledwo zauwazalne */
     .showcase::before {
@@ -775,28 +1197,29 @@
       padding: 4px 0 12px;
     }
 
-    /* === CARD - premium minimal. 16:11 landscape, zdjecie/video dominuje. === */
+    /* === CARD - premium minimal. Obraz/video na gorze + info PONIZEJ w czystym bloku. === */
     .sc-card {
       position: relative;
-      aspect-ratio: 16 / 11;
       border-radius: 14px;
       overflow: hidden;
       text-decoration: none;
-      color: #fff;
-      background: #e6dfd0;
+      color: var(--brand-night, #003C71);
+      background: #ffffff;
       box-shadow: 0 16px 40px -18px rgba(0, 30, 60, 0.2);
       transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
                   box-shadow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
     .sc-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 28px 60px -18px rgba(0, 30, 60, 0.32);
     }
     .sc-card__img {
-      position: absolute; inset: 0; z-index: 0;
+      position: relative;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
-      border-radius: 14px;
+      border-radius: 14px 14px 0 0;
     }
     .sc-card__img img,
     .sc-card__img video {
@@ -811,21 +1234,12 @@
     .sc-card__img--video { position: relative; }
     .sc-card__img--video video { filter: saturate(1.05) contrast(1.02); }
 
-    /* Gradient overlay - subtelny, tylko dolne 45%, wiecej widac zdjecie/video */
-    .sc-card::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0) 55%,
-        rgba(0, 20, 40, 0.55) 85%,
-        rgba(0, 15, 30, 0.88) 100%);
-      transition: background 0.5s ease;
-    }
+    /* Brak gradient overlay - zdjecie/video czyste, tekst pod zdjeciem */
+    .sc-card::before { display: none; }
 
-    /* Status - glass pill top-left, subtelny */
+    /* Status - glass pill top-left, nad zdjeciem */
     .sc-card__status {
-      position: absolute; top: 18px; left: 18px;
+      position: absolute; top: 14px; left: 14px;
       z-index: 3;
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 12px;
@@ -835,7 +1249,7 @@
       -webkit-backdrop-filter: blur(10px);
       color: var(--brand-night, #003C71);
       border-radius: 9999px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     }
     .sc-card__status::before {
       content: ''; width: 5px; height: 5px; border-radius: 50%;
@@ -847,16 +1261,16 @@
     .sc-card__status--soon  { color: #6e5327; }
     .sc-card__status--soon::before  { background: #c9a96e; }
 
-    /* Body - 3 kolumny: nazwa + lokalizacja / cena / strzalka, premium kompakt */
+    /* Body - blok PONIZEJ zdjecia, czysty navy-on-white, brak overlay */
     .sc-card__body {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      z-index: 2;
-      padding: 20px 22px 20px;
+      padding: 18px 20px;
       display: grid;
       grid-template-columns: 1fr auto auto;
       grid-template-areas: "names price arrow";
       gap: 14px;
-      align-items: end;
+      align-items: center;
+      background: #ffffff;
+      border-top: 1px solid rgba(0, 60, 113, 0.06);
     }
     .sc-card__names { grid-area: names; min-width: 0; }
     .sc-card__name {
@@ -865,14 +1279,14 @@
       font-weight: 700;
       letter-spacing: -0.3px;
       line-height: 1.2;
-      color: #fff;
+      color: var(--brand-night, #003C71);
       margin: 0 0 4px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
     .sc-card__loc {
       display: block;
-      font-size: 10px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.78);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase;
+      color: var(--brand-night, #003C71);
+      opacity: 0.55;
     }
     .sc-card__price {
       grid-area: price;
@@ -883,72 +1297,130 @@
     }
     .sc-card__price-lbl {
       font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
+      color: var(--brand-night, #003C71);
+      opacity: 0.5;
       margin-bottom: 3px;
     }
     .sc-card__price-val {
       font-family: 'Ubuntu', sans-serif;
-      font-size: 13px; font-weight: 800;
-      color: #fff;
+      font-size: 14px; font-weight: 800;
+      color: var(--brand-night, #003C71);
       white-space: nowrap;
-      letter-spacing: -0.1px;
+      letter-spacing: -0.2px;
     }
     .sc-card__arrow {
       grid-area: arrow;
       width: 34px; height: 34px;
       border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #fff;
+      background: transparent;
+      border: 1.5px solid rgba(0, 60, 113, 0.18);
+      color: var(--brand-night, #003C71);
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .sc-card:hover .sc-card__arrow {
       background: #c9a55c;
       border-color: #c9a55c;
-      color: var(--brand-night, #003C71);
+      color: #ffffff;
       transform: translateX(4px);
     }
 
-    /* === BRIDGE - elegancki brass ornament miedzy showcase a portfolio-hub === */
-    .showcase__bridge {
-      display: flex; align-items: center; justify-content: center;
-      gap: 22px;
-      max-width: 720px;
-      margin: 56px auto 0;
-      padding: 0 40px;
+    /* === CTA "Wyslij zapytanie" - smukly premium orange === */
+    .showcase__cta-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 22px;
+      padding: 0 4px;
+    }
+    .showcase__cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 11px 24px;
+      background: linear-gradient(135deg, #e25c16 0%, #f57a2e 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 9999px;
+      font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase;
+      box-shadow: 0 6px 18px -2px rgba(226, 92, 22, 0.28),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .showcase__cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #c44f10 0%, #e25c16 100%);
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s,
-                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s;
+      transition: opacity 0.3s ease;
     }
-    .showcase.is-revealed .showcase__bridge {
-      opacity: 1;
-      transform: translateY(0);
+    .showcase__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -4px rgba(226, 92, 22, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
-    .showcase__bridge-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(201, 165, 92, 0.35) 50%,
-        transparent 100%);
-    }
-    .showcase__bridge-gem {
-      width: 26px; height: 26px;
+    .showcase__cta:hover::before { opacity: 1; }
+    .showcase__cta > * { position: relative; z-index: 1; }
+    .showcase__cta-ico {
       display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
       flex-shrink: 0;
-      animation: bridgeShine 3s ease-in-out infinite;
     }
-    .showcase__bridge-gem svg {
-      width: 100%; height: 100%;
-      filter: drop-shadow(0 2px 6px rgba(201, 165, 92, 0.35));
+    .showcase__cta-ico svg { width: 12px; height: 12px; }
+    .showcase__cta-ico svg path,
+    .showcase__cta-ico svg polyline { stroke-width: 2; }
+
+    @media (max-width: 640px) {
+      .showcase__cta-wrap { justify-content: center; }
+      .showcase__cta { padding: 10px 20px; font-size: 10px; }
     }
-    @keyframes bridgeShine {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50%      { transform: scale(1.08); opacity: 1; }
+
+    /* === Showcase = ta sama cream co portfolio-hub + wspolne decor patterns
+       Fluent transition: patterns waves/dots/curves ciagna sie przez obie sekcje === */
+    .showcase::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        /* dots w lewym gornym - lustrzane odbicie portfolio-hub (LT <-> RB) */
+        url('/media/decor/dots.svg'),
+        /* curve w prawym gornym - jak curve z portfolio-hub w lewym dolnym */
+        url('/media/decor/curve.svg'),
+        /* waves w dolnym lewym - laczy sie z portfolio-hub waves po prawej */
+        url('/media/decor/waves.svg'),
+        /* male dots w prawym dolnym - plynnie przechodzi do portfolio-hub */
+        url('/media/decor/dots.svg');
+      background-repeat: no-repeat;
+      background-position:
+        3% 15%,         /* dots LT */
+        98% 8%,         /* curve RT (flipped) */
+        -2% 88%,        /* waves LB */
+        99% 92%;        /* dots RB */
+      background-size:
+        220px 220px,
+        340px 240px,
+        300px 260px,
+        180px 180px;
+      opacity: 0.55;
+      filter: drop-shadow(0 4px 10px rgba(0, 60, 113, 0.08));
+    }
+    .showcase > * { position: relative; z-index: 1; }
+
+    @media (max-width: 900px) {
+      .showcase::after {
+        background-size:
+          160px 160px,
+          240px 180px,
+          220px 200px,
+          140px 140px;
+        opacity: 0.4;
+      }
+    }
+    @media (max-width: 640px) {
+      .showcase::after { display: none; }
     }
 
     /* === FOOT - stare, zachowane jako ukryte (dla ewentualnego uzycia) === */
@@ -1025,6 +1497,19 @@
       opacity: 1; transform: translateY(0);
       transition-delay: 1.1s;
     }
+    /* CTA reveal po kartach */
+    [data-sc-anim="cta"] {
+      opacity: 0;
+      transform: translateY(14px) scale(0.96);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.35s ease;
+    }
+    .showcase.is-revealed [data-sc-anim="cta"] {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition-delay: 1.15s;
+    }
 
     @media (max-width: 980px) {
       .showcase { padding: 48px 0 40px; }
@@ -1032,12 +1517,12 @@
       .showcase__head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 22px; }
       .showcase__link { justify-self: start; }
       .showcase__rail { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .sc-card { aspect-ratio: 4 / 3; }
-      .sc-card__body { padding: 16px 16px 16px; gap: 10px; }
+      .sc-card__img { aspect-ratio: 4 / 3; }
+      .sc-card__body { padding: 14px 16px; gap: 10px; }
     }
     @media (max-width: 640px) {
       .showcase__rail { grid-template-columns: 1fr; gap: 14px; }
-      .sc-card { aspect-ratio: 16 / 10; }
+      .sc-card__img { aspect-ratio: 16 / 10; }
     }
 
     /* (stare hero-offers usuniete) */
@@ -1360,19 +1845,18 @@
 
         </div>
 
+        <!-- CTA: wyslij zapytanie - po prawej, pod kartami -->
+        <div class="showcase__cta-wrap">
+          <a href="/kontakt/" class="showcase__cta" data-sc-anim="cta">
+            <span class="showcase__cta-ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <span class="showcase__cta-txt">Wyślij zapytanie</span>
+          </a>
+        </div>
+
       </div>
 
-      <!-- Elegancki brass ornament - premium przejscie miedzy sekcjami -->
-      <div class="showcase__bridge" aria-hidden="true">
-        <span class="showcase__bridge-line"></span>
-        <span class="showcase__bridge-gem">
-          <svg viewBox="0 0 32 32" fill="none">
-            <path d="M16 4 L20 14 L28 16 L20 18 L16 28 L12 18 L4 16 L12 14 Z" fill="#c9a55c" opacity="0.7"/>
-            <path d="M16 8 L18 14 L24 16 L18 18 L16 24 L14 18 L8 16 L14 14 Z" fill="#c9a55c"/>
-          </svg>
-        </span>
-        <span class="showcase__bridge-line"></span>
-      </div>
     </section>
 
     <!-- ===== INTRO — dome reveal wrapper ===== -->
@@ -1505,24 +1989,24 @@
         <!-- Siatka wszystkich inwestycji (realne dane z megapolis.pl) -->
         <div class="allinv__grid" data-reveal id="allinvGrid">
 
-          <!-- 1. Nowe Osiedle Fi - W BUDOWIE -->
-          <a href="/osiedle-fi/" class="allinv__card" data-status="building" data-inv="fi" id="card-fi">
+          <!-- 1. CLOU Lindego - ZREALIZOWANA -->
+          <a href="/clou-lindego/" class="allinv__card" data-status="done" data-inv="clou" id="card-clou">
             <div class="allinv__card-media"
                  data-slider
-                 data-images="https://megapolis.pl/wp-content/uploads/2025/04/08_noc_a-1024x576.jpg|https://megapolis.pl/wp-content/uploads/2024/07/fi-noc-max-res-1-1024x576.webp|https://megapolis.pl/wp-content/uploads/2025/04/08_noc_a-1024x576.jpg|https://megapolis.pl/wp-content/uploads/2024/07/fi-noc-max-res-1-1024x576.webp"
-                 data-alt="Nowe Osiedle Fi">
-              <span class="allinv__logo"><span class="allinv__logo-mark">Fi<em>OSIEDLE</em></span></span>
-              <span class="allinv__card-status allinv__card-status--building">W&nbsp;sprzedaży</span>
+                 data-images="/media/clou/lindego-panorama.jpg|/media/clou/lindego-street.jpg|/media/clou/lindego-ogrodek.jpg|/media/clou/lindego-filtrowa.jpg"
+                 data-alt="CLOU Lindego">
+              <span class="allinv__logo allinv__logo--img"><img src="/media/logos/clou.svg" alt="CLOU Lindego" loading="lazy"></span>
+              <span class="allinv__card-status allinv__card-status--done">Zrealizowana</span>
               <span class="allinv__card-hint">Zobacz inwestycję <span aria-hidden="true">→</span></span>
             </div>
             <div class="allinv__card-body">
-              <h3 class="allinv__card-name">Nowe Osiedle Fi</h3>
+              <h3 class="allinv__card-name">CLOU Lindego</h3>
               <ul class="allinv__card-meta">
-                <li class="allinv__card-meta-status allinv__card-meta-status--building">W budowie</li>
+                <li class="allinv__card-meta-status allinv__card-meta-status--done">Zrealizowane</li>
                 <li>Kraków</li>
-                <li>II etap</li>
+                <li>2024</li>
               </ul>
-              <p class="allinv__card-desc">Druga edycja popularnego osiedla Fi przy ul. <strong>Dobrego Pasterza</strong> — dynamicznie rozwijającej się części Krakowa. Komfortowe mieszkania od 1 do 5 pokoi w nowoczesnej zabudowie.</p>
+              <p class="allinv__card-desc">Inwestycja premium powstała w malowniczej okolicy Bronowic, w bezpośrednim sąsiedztwie terenów rekreacyjnych — <strong>Młynówki Królewskiej</strong> oraz <strong>Parku Tetmajera</strong>. Idealne miejsce dla osób ceniących ciszę i spokój w mieście.</p>
               <span class="allinv__card-more">
                 Dowiedz się więcej
                 <span class="allinv__card-more-arrow" aria-hidden="true">
@@ -1532,34 +2016,7 @@
             </div>
           </a>
 
-          <!-- 2. Osiedle OZON - rozdział III - W BUDOWIE -->
-          <a href="/osiedle-ozon/" class="allinv__card" data-status="building" data-inv="ozon" id="card-ozon">
-            <div class="allinv__card-media"
-                 data-slider
-                 data-images="/media/ozon/ozon-1.jpg|/media/ozon/ozon-2.jpg|/media/ozon/ozon-3.jpg|/media/ozon/ozon-1.jpg"
-                 data-alt="Osiedle OZON III">
-              <span class="allinv__logo allinv__logo--img"><img src="/media/logos/ozon.svg" alt="Osiedle OZON" loading="lazy"></span>
-              <span class="allinv__card-status allinv__card-status--building">W&nbsp;sprzedaży</span>
-              <span class="allinv__card-hint">Zobacz inwestycję <span aria-hidden="true">→</span></span>
-            </div>
-            <div class="allinv__card-body">
-              <h3 class="allinv__card-name">Osiedle OZON <em>— III</em></h3>
-              <ul class="allinv__card-meta">
-                <li class="allinv__card-meta-status allinv__card-meta-status--building">W budowie</li>
-                <li>Kraków, Ruczaj</li>
-                <li>Rozdział III</li>
-              </ul>
-              <p class="allinv__card-desc">Trzeci rozdział flagowego projektu Megapolis na <strong>Ruczaju</strong>. Nowoczesna architektura, przestronne mieszkania 1–4 pokoje oraz zielone dziedzińce w sercu dynamicznej dzielnicy.</p>
-              <span class="allinv__card-more">
-                Dowiedz się więcej
-                <span class="allinv__card-more-arrow" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                </span>
-              </span>
-            </div>
-          </a>
-
-          <!-- 3. Michalczyka 15 - PLANOWANA - Wrocław -->
+          <!-- 2. Michalczyka 15 - PLANOWANA - Wrocław -->
           <a href="https://megapolis.pl/inwestycje/michalczyka-15/" target="_blank" rel="noopener" class="allinv__card" data-status="planned" data-inv="michalczyka" id="card-michalczyka">
             <div class="allinv__card-media"
                  data-slider
@@ -1586,24 +2043,51 @@
             </div>
           </a>
 
-          <!-- 4. CLOU Lindego - ZREALIZOWANA -->
-          <a href="/clou-lindego/" class="allinv__card" data-status="done" data-inv="clou" id="card-clou">
+          <!-- 3. Nowe Osiedle Fi - W BUDOWIE -->
+          <a href="/osiedle-fi/" class="allinv__card" data-status="building" data-inv="fi" id="card-fi">
             <div class="allinv__card-media"
                  data-slider
-                 data-images="/media/clou/lindego-panorama.jpg|/media/clou/lindego-street.jpg|/media/clou/lindego-ogrodek.jpg|/media/clou/lindego-filtrowa.jpg"
-                 data-alt="CLOU Lindego">
-              <span class="allinv__logo allinv__logo--img"><img src="/media/logos/clou.svg" alt="CLOU Lindego" loading="lazy"></span>
-              <span class="allinv__card-status allinv__card-status--done">Zrealizowana</span>
+                 data-images="https://megapolis.pl/wp-content/uploads/2025/04/08_noc_a-1024x576.jpg|https://megapolis.pl/wp-content/uploads/2024/07/fi-noc-max-res-1-1024x576.webp|https://megapolis.pl/wp-content/uploads/2025/04/08_noc_a-1024x576.jpg|https://megapolis.pl/wp-content/uploads/2024/07/fi-noc-max-res-1-1024x576.webp"
+                 data-alt="Nowe Osiedle Fi">
+              <span class="allinv__logo"><span class="allinv__logo-mark">Fi<em>OSIEDLE</em></span></span>
+              <span class="allinv__card-status allinv__card-status--building">W&nbsp;sprzedaży</span>
               <span class="allinv__card-hint">Zobacz inwestycję <span aria-hidden="true">→</span></span>
             </div>
             <div class="allinv__card-body">
-              <h3 class="allinv__card-name">CLOU Lindego</h3>
+              <h3 class="allinv__card-name">Nowe Osiedle Fi</h3>
               <ul class="allinv__card-meta">
-                <li class="allinv__card-meta-status allinv__card-meta-status--done">Zrealizowane</li>
+                <li class="allinv__card-meta-status allinv__card-meta-status--building">W budowie</li>
                 <li>Kraków</li>
-                <li>2024</li>
+                <li>II etap</li>
               </ul>
-              <p class="allinv__card-desc">Inwestycja premium powstała w malowniczej okolicy Bronowic, w bezpośrednim sąsiedztwie terenów rekreacyjnych — <strong>Młynówki Królewskiej</strong> oraz <strong>Parku Tetmajera</strong>. Idealne miejsce dla osób ceniących ciszę i spokój w mieście.</p>
+              <p class="allinv__card-desc">Druga edycja popularnego osiedla Fi przy ul. <strong>Dobrego Pasterza</strong> — dynamicznie rozwijającej się części Krakowa. Komfortowe mieszkania od 1 do 5 pokoi w nowoczesnej zabudowie.</p>
+              <span class="allinv__card-more">
+                Dowiedz się więcej
+                <span class="allinv__card-more-arrow" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <!-- 4. Osiedle OZON - rozdział III - W BUDOWIE -->
+          <a href="/osiedle-ozon/" class="allinv__card" data-status="building" data-inv="ozon" id="card-ozon">
+            <div class="allinv__card-media"
+                 data-slider
+                 data-images="/media/ozon/ozon-1.jpg|/media/ozon/ozon-2.jpg|/media/ozon/ozon-3.jpg|/media/ozon/ozon-1.jpg"
+                 data-alt="Osiedle OZON III">
+              <span class="allinv__logo allinv__logo--img"><img src="/media/logos/ozon.svg" alt="Osiedle OZON" loading="lazy"></span>
+              <span class="allinv__card-status allinv__card-status--building">W&nbsp;sprzedaży</span>
+              <span class="allinv__card-hint">Zobacz inwestycję <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="allinv__card-body">
+              <h3 class="allinv__card-name">Osiedle OZON <em>— III</em></h3>
+              <ul class="allinv__card-meta">
+                <li class="allinv__card-meta-status allinv__card-meta-status--building">W budowie</li>
+                <li>Kraków, Ruczaj</li>
+                <li>Rozdział III</li>
+              </ul>
+              <p class="allinv__card-desc">Trzeci rozdział flagowego projektu Megapolis na <strong>Ruczaju</strong>. Nowoczesna architektura, przestronne mieszkania 1–4 pokoje oraz zielone dziedzińce w sercu dynamicznej dzielnicy.</p>
               <span class="allinv__card-more">
                 Dowiedz się więcej
                 <span class="allinv__card-more-arrow" aria-hidden="true">
@@ -1914,35 +2398,36 @@
             </div>
           </div>
 
-          <!-- Row 5 przeniesione niżej; Row 4 (kompas) jest w aside -->
-          <div class="finder__row finder__row--block">
-            <div class="finder__field finder__field--full">
-              <label class="finder__flabel">PRZYNALEŻNOŚCI</label>
-              <div class="finder__features" role="group" aria-label="Wybierz przynależności mieszkania">
-                <button type="button" class="finder__feat-btn" data-feat="balkon">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M4 14h16M9 14v7M15 14v7"/></svg>
-                  Balkon
-                </button>
-                <button type="button" class="finder__feat-btn" data-feat="loggia">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 12h10v8"/></svg>
-                  Loggia
-                </button>
-                <button type="button" class="finder__feat-btn" data-feat="ogrodek">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22V10m0 0c-4 0-7-3-7-6 3 0 7 1 7 6zm0 0c4 0 7-3 7-6-3 0-7 1-7 6z"/><path d="M3 22h18"/></svg>
-                  Ogródek
-                </button>
-                <button type="button" class="finder__feat-btn" data-feat="taras">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V8h14v12M5 14h14M9 8v12M15 8v12"/></svg>
-                  Taras
-                </button>
-                <button type="button" class="finder__feat-btn" data-feat="wykusz">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V4h16v16"/><path d="M4 20h16M8 8v12M16 8v12M8 8l8 0"/></svg>
-                  Wykusz
-                </button>
-              </div>
+         </div><!-- /finder__filters-main -->
+
+         <!-- Blok dolny: Przynaleznosci (lewo) + Kompas (prawo) - 2 kolumny -->
+         <div class="finder__bottom-row">
+          <div class="finder__field finder__field--amenities">
+            <label class="finder__flabel">PRZYNALEŻNOŚCI</label>
+            <div class="finder__features" role="group" aria-label="Wybierz przynależności mieszkania">
+              <button type="button" class="finder__feat-btn" data-feat="balkon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M4 14h16M9 14v7M15 14v7"/></svg>
+                Balkon
+              </button>
+              <button type="button" class="finder__feat-btn" data-feat="loggia">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 12h10v8"/></svg>
+                Loggia
+              </button>
+              <button type="button" class="finder__feat-btn" data-feat="ogrodek">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22V10m0 0c-4 0-7-3-7-6 3 0 7 1 7 6zm0 0c4 0 7-3 7-6-3 0-7 1-7 6z"/><path d="M3 22h18"/></svg>
+                Ogródek
+              </button>
+              <button type="button" class="finder__feat-btn" data-feat="taras">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V8h14v12M5 14h14M9 8v12M15 8v12"/></svg>
+                Taras
+              </button>
+              <button type="button" class="finder__feat-btn" data-feat="wykusz">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V4h16v16"/><path d="M4 20h16M8 8v12M16 8v12M8 8l8 0"/></svg>
+                Wykusz
+              </button>
             </div>
           </div>
-         </div><!-- /finder__filters-main -->
+         </div>
 
          <!-- Aside: kompas (strony świata) — prawy bok, vertical-center -->
          <aside class="finder__filters-side" aria-label="Strona świata">
@@ -2259,10 +2744,17 @@
           </div>
         </div>
       </div>
+      <!-- Prominentna domena/brand mark -->
+      <div class="footer__domain-mark">
+        <a href="https://megapolis.pl" class="footer__domain-url">
+          <span class="footer__domain-protocol">www.</span><span class="footer__domain-name">megapolis</span><span class="footer__domain-tld">.pl</span>
+        </a>
+        <div class="footer__domain-sub">Deweloper mieszkaniowy &nbsp;·&nbsp; Kraków &amp; Wrocław &nbsp;·&nbsp; EST. 1989</div>
+      </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Megapolis Sp.&nbsp;z&nbsp;o.o. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 <strong>Megapolis Sp.&nbsp;z&nbsp;o.o.</strong> &nbsp;·&nbsp; Wszelkie prawa zastrzeżone &nbsp;·&nbsp; NIP 675-000-00-00 &nbsp;·&nbsp; KRS 0000123456</p>
         <div class="footer__bottom-links">
-          <a href="#">Polityka prywatności</a>
+          <a href="/polityka-prywatnosci/">Polityka prywatności</a>
           <a href="#">Regulamin</a>
         </div>
       </div>
@@ -2446,6 +2938,10 @@
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    // Wymus recalculate po zaladowaniu (fix: szary gap pod mapa gdy parent zmienia wymiary)
+    setTimeout(function() { map.invalidateSize(); }, 100);
+    window.addEventListener('load', function() { setTimeout(function() { map.invalidateSize(); }, 300); });
 
     // Własna ikona pin (gold)
     function makePin(isActive) {
@@ -3095,12 +3591,30 @@
       btn.addEventListener('click', function () {
         allinv.classList.add('is-expanded');
         updateCount();
+        // Force eager loading wszystkich obrazkow w nowo-rozwinietych kartach
+        // (obrazki byly lazy + absolute -9999px, wiec nie byly w viewport)
+        var hiddenCards = grid.querySelectorAll('.allinv__card:nth-of-type(n+5)');
+        hiddenCards.forEach(function (card) {
+          card.querySelectorAll('img').forEach(function (img) {
+            if (img.loading === 'lazy') img.loading = 'eager';
+            // Wymus ponowne ladowanie jesli src juz byl ustawiony ale blob nie
+            if (!img.complete && img.src) {
+              var s = img.src;
+              img.src = '';
+              img.src = s;
+            }
+          });
+        });
+        // Trigger layout recalc (Leaflet-style reset) po animacji wjazdu
+        setTimeout(function () {
+          window.dispatchEvent(new Event('resize'));
+        }, 100);
         // Scroll smooth do piatej karty (pierwsza z rozwinietych)
         var fifthCard = grid.querySelectorAll('.allinv__card')[4];
         if (fifthCard) {
           setTimeout(function () {
             fifthCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 450);
+          }, 500);
         }
       });
 

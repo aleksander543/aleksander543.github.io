@@ -4250,24 +4250,81 @@ html.a11y-light body { background:var(--bg); color:var(--white); }
 .allinv,
 .allinv.section { background: transparent !important; }
 
-/* Filtry Wszystkie / W sprzedaży / Zrealizowane / Wkrótce */
+/* === FILTRY — minimalist segmented control. Czyste, spokojne, profesjonalne. === */
+body[data-site="megapolis"] .allinv__filters,
+.ws-page .allinv__filters,
+.allinv__filters {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center !important;
+  gap: 2px !important;
+  margin: 0 auto 32px !important;
+  padding: 5px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 60, 113, 0.1) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 10px rgba(0, 60, 113, 0.04) !important;
+}
+
 .allinv__filter {
-  background: #fff !important;
-  border: 1.5px solid rgba(0, 60, 113, 0.2) !important;
-  color: var(--graphite) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 20px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+  color: var(--brand-night, #003C71) !important;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  opacity: 0.65 !important;
 }
 .allinv__filter:hover {
-  border-color: var(--brand-night) !important;
-  background: rgba(0, 60, 113, 0.05) !important;
-  color: var(--brand-night) !important;
+  opacity: 1 !important;
+  background: rgba(0, 60, 113, 0.04) !important;
 }
 .allinv__filter.is-active {
-  background: var(--brand-night) !important;
-  border-color: var(--brand-night) !important;
+  background: var(--brand-night, #003C71) !important;
   color: #fff !important;
+  opacity: 1 !important;
 }
-.allinv__filter-count { color: inherit !important; opacity: 0.7; }
-.allinv__filter.is-active .allinv__filter-count { opacity: 0.85; }
+
+/* Status dots */
+.allinv__filter-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+.allinv__filter-dot--building { background: #c9a96e !important; }
+.allinv__filter-dot--done     { background: #7aa889 !important; }
+.allinv__filter-dot--planned  { background: #7aa8d4 !important; }
+
+/* Count - neutralna cyfra bez ozdob */
+.allinv__filter-count {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  opacity: 0.55 !important;
+  letter-spacing: 0 !important;
+}
+.allinv__filter.is-active .allinv__filter-count { opacity: 0.75 !important; }
+
+@media (max-width: 640px) {
+  .allinv__filters { padding: 3px !important; }
+  .allinv__filter { padding: 8px 14px !important; font-size: 12px !important; }
+}
 
 /* ================================================================
    Karty inwestycji — horizontalny layout (image + text)
